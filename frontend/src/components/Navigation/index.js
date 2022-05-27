@@ -16,19 +16,34 @@ function Navigation({ isLoaded }) {
     } else {
         sessionLinks = (
             <>
-                <LoginFormModal />
-                <NavLink to="/signup">Sign Up</NavLink>
+                <span className='login-btn'>
+                    <LoginFormModal />
+                </span>
+                <NavLink to="/signup" style={{ textDecoration: "none" }}>Sign Up</NavLink>
             </>
         );
     }
 
     return (
-        <ul>
-            <li>
-                <NavLink exact to="/">Home</NavLink>
-                {isLoaded && sessionLinks}
+        <ul className='nav-container'>
+            <li className='nav-links'>
+                <span>
+                    <NavLink exact to="/" style={{ color: "blue", textDecoration: "none" }}>
+                        <i className="fa-solid fa-people-group fa-2xl"></i>
+                        <div className='home-text'>
+                            YelpSquad
+                        </div>
+                    </NavLink>
+                </span>
+                <span>
+                    <input type="text" placeholder='Search' />
+                    <button>Search</button>
+                </span>
+                <span className='auth-btns'>
+                    {isLoaded && sessionLinks}
+                </span>
             </li>
-        </ul>
+        </ul >
     );
 }
 

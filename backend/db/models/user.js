@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 256]
       }
     },
-    image: {
+    profileImg: {
       type: DataTypes.STRING,
     },
     hashedPassword: {
@@ -51,8 +51,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
   User.prototype.toSafeObject = function () { // remember, this cannot be an arrow function
-    const { id, username, email } = this; // context will be the User instance
-    return { id, username, email };
+    const { id, username, email, profileImg } = this; // context will be the User instance
+    return { id, username, email, profileImg };
   };
 
   User.prototype.validatePassword = function (password) {

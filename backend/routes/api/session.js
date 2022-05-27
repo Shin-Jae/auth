@@ -26,7 +26,6 @@ router.post(
     validateLogin,
     asyncHandler(async (req, res, next) => {
         const { credential, password } = req.body;
-
         const user = await User.login({ credential, password });
 
         if (!user) {
@@ -40,7 +39,7 @@ router.post(
         await setTokenCookie(res, user);
 
         return res.json({
-            user
+            user,
         });
     })
 );
@@ -68,6 +67,5 @@ router.get(
         } else return res.json({});
     }
 );
-
 
 module.exports = router;
