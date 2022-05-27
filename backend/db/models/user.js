@@ -23,6 +23,9 @@ module.exports = (sequelize, DataTypes) => {
         len: [3, 256]
       }
     },
+    profileImg: {
+      type: DataTypes.STRING,
+    },
     hashedPassword: {
       type: DataTypes.STRING.BINARY,
       allowNull: false,
@@ -48,8 +51,8 @@ module.exports = (sequelize, DataTypes) => {
     });
 
   User.prototype.toSafeObject = function () { // remember, this cannot be an arrow function
-    const { id, username, email } = this; // context will be the User instance
-    return { id, username, email };
+    const { id, username, email, profileImg } = this; // context will be the User instance
+    return { id, username, email, profileImg };
   };
 
   User.prototype.validatePassword = function (password) {
@@ -87,6 +90,9 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function (models) {
     // associations can be defined here
+    User.hasMany(models.Group, { foreignKey: "ownerId" });
+    User.hasMany(models.Review, { foreignKey: "userId" });
+    User.hasMany(models.Like, { foreignKey: "userId" });
   };
 
   return User;

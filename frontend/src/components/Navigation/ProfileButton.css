@@ -1,0 +1,11 @@
+.profile-img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.welcome-msg {
+    padding-top: -90px;
+    padding-right: 60px;
+    font-size: 20px;
+}

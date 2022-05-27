@@ -1,0 +1,19 @@
+.nav-container {
+    border: 2px solid black;
+    background-color: peachpuff;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.auth-btns {
+    margin-right: 20px;
+}
+
+.login-btn {
+    margin-right: 10px;
+}
