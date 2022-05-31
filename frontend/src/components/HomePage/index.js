@@ -6,9 +6,9 @@ import './HomePage.css'
 function HomePage() {
     const dispatch = useDispatch();
     const allGroups = useSelector((state) => state.groups);
-    console.log('Before change', allGroups)
+    console.log('Before change', allGroups);
     const groups = Object.values(allGroups);
-    console.log('After change', groups)
+    console.log('After change', groups);
 
     useEffect(() => {
         dispatch(groupsActions.getAllGroups());
@@ -21,6 +21,16 @@ function HomePage() {
             </div>
             <div className="recent-activity">
                 <h1>Recent Activity</h1>
+                <ul>
+                    {groups.map(group => {
+                        return <li key={`group-${group.id}`}>
+                            <div><img className="group-profile-img" src={`${group.groupImg}`} alt=""></img></div>
+                            <div>{group.name}</div>
+                            <div>{group.title}</div>
+                            <div>{group.aboutUs}</div>
+                        </li>
+                    })}
+                </ul>
             </div>
             <div className="categories">
                 <h1>Categories</h1>
