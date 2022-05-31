@@ -29,6 +29,7 @@ function SingleGroup() {
                     </div>
                     <div className="single-group-title"><span className="red">Job:</span> {group.title}</div>
                     <div className="single-group-location"><span className="red">Located:</span> {group.location}</div>
+                    <div className="single-group-aboutUs"><span className="red">About Us:</span> {group.aboutUs}</div>
                     {/* <div><span className="red">About us:</span> {group.aboutUs}</div> */}
                     <div><button type="submit">Write a review</button>
                         <button type="submit">Favorite</button></div>
