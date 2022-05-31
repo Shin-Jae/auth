@@ -52,13 +52,7 @@ function GroupFormPage() {
             history.push('/');
             reset();
         }
-        // console.log('adfadfaeer', categoryId)
-        // console.log(newPost);
     };
-
-    // const handleClick = () => {
-    //     history.push('/')
-    // }
 
     const handleCategory = (e) => {
         setCategoryId(e);
