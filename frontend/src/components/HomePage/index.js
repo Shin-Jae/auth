@@ -27,7 +27,7 @@ function HomePage() {
                             <div><img className="group-profile-img" src={`${group.groupImg}`} alt=""></img></div>
                             <div><span className="red">Group:</span> {group.name}</div>
                             <div><span className="red">Job:</span> {group.title}</div>
-                            <div><span className="red">About us:</span> {group.aboutUs}</div>
+                            {/* <div><span className="red">About us:</span> {group.aboutUs}</div> */}
                             <div>
                                 <img className="group-images" src={`${group.image1}`} alt="1"></img>
                                 <img className="group-images" src={`${group.image2}`} alt="2"></img>

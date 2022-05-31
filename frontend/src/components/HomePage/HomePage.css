@@ -20,7 +20,7 @@
 
 .categories {
     position: absolute;
-    top: 270%;
+    top: 220%;
     right: 50%;
 }
 
@@ -44,8 +44,9 @@
 } */
 
 .group-profile-img {
-    height: 100px;
-    width: 150px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
 }
 
 .group-images {

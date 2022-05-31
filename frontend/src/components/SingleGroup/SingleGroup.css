@@ -1,0 +1,39 @@
+.one-group-container {
+    border: 1px solid black
+}
+
+.single-group-profile-img {
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+}
+
+.single-group-name {
+    display: inline;
+    position: absolute;
+    font-size: 120px;
+    margin-top: 70px;
+    margin-left: 100px;
+}
+
+.total-rating {
+    margin-left: 100px;
+    font-size: 60px;
+}
+
+.single-group-title {
+    margin-top: 50px;
+    font-size: 30px;
+}
+
+.single-group-location {
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.single-group-images {
+    display: inline-flex;
+    align-content: space-between;
+    padding: 50px;
+    height: 300px;
+}
