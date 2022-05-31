@@ -20,7 +20,7 @@
 
 .categories {
     position: absolute;
-    top: 270%;
+    top: 220%;
     right: 50%;
 }
 
@@ -33,6 +33,7 @@
 } */
 
 .single-group-container {
+    /* display: grid; */
     border: 1px solid black;
     margin-top: 20px
 }
@@ -44,8 +45,9 @@
 } */
 
 .group-profile-img {
-    height: 100px;
-    width: 150px;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
 }
 
 .group-images {
