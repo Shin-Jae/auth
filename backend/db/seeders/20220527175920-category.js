@@ -20,6 +20,11 @@ module.exports = {
         updatedAt: new Date()
       },
       {
+        category: "Heros",
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
         category: "Music",
         createdAt: new Date(),
         updatedAt: new Date()
