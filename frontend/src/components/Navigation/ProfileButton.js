@@ -31,7 +31,7 @@ function ProfileButton({ user }) {
 
     return (
         <>
-            <span className="welcome-msg">Welcome {user.username}</span>
+            <span className="welcome-msg">{user.username}</span>
             {/* <button onClick={openMenu}> */}
             {/* <i className="fas fa-user-circle" /> */}
             <img className="profile-img" src={user.profileImg} onClick={openMenu}></img>

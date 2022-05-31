@@ -20,4 +20,38 @@ router.get('/:id', asyncHandler(async (req, res) => {
     res.json(groups);
 }));
 
+router.post('/new', requireAuth, handleValidationErrors, asyncHandler(async (req, res) => {
+    const ownerId = req.user.id;
+    const {
+        name,
+        title,
+        location,
+        aboutUs,
+        categoryId,
+        groupImg,
+        image1,
+        image2,
+        image3,
+        image4,
+        image5
+    } = req.body;
+
+    const group = await Group.create({
+        ownerId,
+        name,
+        title,
+        location,
+        aboutUs,
+        categoryId,
+        groupImg,
+        image1,
+        image2,
+        image3,
+        image4,
+        image5
+    });
+
+    res.json(group);
+}))
+
 module.exports = router;

@@ -39,6 +39,14 @@ function Navigation({ isLoaded }) {
                     <input type="text" placeholder='Search' />
                     <button>Search</button>
                 </span>
+                <span>
+                    Welcome {sessionUser?.username}
+                </span>
+                <span>
+                    <NavLink exact to="/group/new">
+                        <button>Create Group</button>
+                    </NavLink>
+                </span>
                 <span className='auth-btns'>
                     {isLoaded && sessionLinks}
                 </span>

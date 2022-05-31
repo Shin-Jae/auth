@@ -2,6 +2,7 @@ import { csrfFetch } from './csrf';
 
 const ALL_GROUPS = "groups/ALL_GROUPS";
 const SINGLE_GROUP = "groups/SINGLE_GROUP";
+const POST_GROUP = "groups/POST_GROUP";
 
 export const allGroups = (groups) => ({
     type: ALL_GROUPS,
@@ -12,6 +13,11 @@ export const singleGroup = (group) => ({
     type: SINGLE_GROUP,
     group
 });
+
+export const postGroup = (group) => ({
+    type: POST_GROUP,
+    group
+})
 
 export const getAllGroups = () => async dispatch => {
     const response = await csrfFetch(`/api/group`);
@@ -29,6 +35,22 @@ export const getOneGroup = id => async dispatch => {
     if (response.ok) {
         let group = await response.json();
         dispatch(singleGroup(group));
+    }
+}
+
+export const newGroup = group => async dispatch => {
+    const response = await csrfFetch(`/api/group/new`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(group),
+    });
+
+    if (response.ok) {
+        const group = await response.json();
+        dispatch(postGroup(group));
+        return group;
     }
 }
 

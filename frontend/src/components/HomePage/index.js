@@ -25,7 +25,7 @@ function HomePage() {
                 <ul className="view-group-home">
                     {groups.map(group => {
                         return <li className="single-group-container" key={`group-${group.id}`}>
-                            <NavLink to={`/group/${group.id}`} style={{ textDecoration: "none", color: "blue" }}>
+                            <NavLink exact to={`/group/${group.id}`} style={{ textDecoration: "none", color: "blue" }}>
                                 <div><img className="group-profile-img" src={`${group.groupImg}`} alt=""></img></div>
                                 <div><span className="red">Group:</span> {group.name}</div>
                                 <div><span className="red">Job:</span> {group.title}</div>
