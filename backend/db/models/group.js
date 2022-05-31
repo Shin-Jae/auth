@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Group.belongsTo(models.User, { foreignKey: "ownerId" });
     Group.belongsTo(models.Category, { foreignKey: "categoryId" });
-    Group.hasMany(models.Review, { foreignKey: "questionId" });
+    Group.hasMany(models.Review, { foreignKey: "groupId" });
     Group.hasOne(models.Like, { foreignKey: "groupId" });
   };
   return Group;

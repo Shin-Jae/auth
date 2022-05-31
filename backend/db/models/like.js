@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Like = sequelize.define('Like', {
-    groupId: DataTypes.INTEGER,
+    teamId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
     like: DataTypes.BOOLEAN
   }, {});

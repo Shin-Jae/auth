@@ -1,0 +1,36 @@
+.home-img-container {
+    /* display: flex;
+    justify-content: center; */
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.AFBZmAzd2ndaGrfmYrQunAHaE7%26pid%3DApi&f=1");
+    background-size: cover;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    height: 700px;
+    right: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.recent-activity {
+    position: absolute;
+    top: 90%;
+    right: 45%;
+}
+
+.categories {
+    position: absolute;
+    top: 150%;
+    right: 50%;
+}
+
+/* .homepage-slide {
+    max-width: 40%;
+    height: 400px;
+
+} */
+
+.group-profile-img {
+    height: 100px;
+    width: 150px;
+}

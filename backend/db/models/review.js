@@ -12,8 +12,8 @@ module.exports = (sequelize, DataTypes) => {
   Review.associate = function (models) {
     // associations can be defined here
     Review.belongsTo(models.Group, {
-      foreignKey: "questionId", onDelete: 'CASCADE',
-    })
+      foreignKey: 'groupId', onDelete: 'CASCADE', hooks: 'true'
+    });
     Review.belongsTo(models.User, { foreignKey: "userId" });
   };
   return Review;
