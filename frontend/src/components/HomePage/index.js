@@ -21,13 +21,18 @@ function HomePage() {
             </div>
             <div className="recent-activity">
                 <h1>Recent Activity</h1>
-                <ul>
+                <ul className="view-group-home">
                     {groups.map(group => {
-                        return <li key={`group-${group.id}`}>
+                        return <li className="single-group-container" key={`group-${group.id}`}>
                             <div><img className="group-profile-img" src={`${group.groupImg}`} alt=""></img></div>
-                            <div>{group.name}</div>
-                            <div>{group.title}</div>
-                            <div>{group.aboutUs}</div>
+                            <div><span className="red">Group:</span> {group.name}</div>
+                            <div><span className="red">Job:</span> {group.title}</div>
+                            <div><span className="red">About us:</span> {group.aboutUs}</div>
+                            <div>
+                                <img className="group-images" src={`${group.image1}`} alt="1"></img>
+                                <img className="group-images" src={`${group.image2}`} alt="2"></img>
+                                {/* <img className="group-images" src={`${group.image3}`} alt="3"></img> */}
+                            </div>
                         </li>
                     })}
                 </ul>

@@ -20,8 +20,21 @@
 
 .categories {
     position: absolute;
-    top: 150%;
+    top: 270%;
     right: 50%;
+}
+
+.red {
+    color: red
+}
+
+/* .view-group-home {
+    border: 1px solid black;
+} */
+
+.single-group-container {
+    border: 1px solid black;
+    margin-top: 20px
 }
 
 /* .homepage-slide {
@@ -31,6 +44,11 @@
 } */
 
 .group-profile-img {
+    height: 100px;
+    width: 150px;
+}
+
+.group-images {
     height: 100px;
     width: 150px;
 }
