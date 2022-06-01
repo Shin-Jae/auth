@@ -1,28 +1,44 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import * as groupActions from '../../store/group';
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
+import * as groupsActions from "../../store/group.js";
 
-function GroupFormPage() {
+function EditGroupForm() {
     const dispatch = useDispatch();
-    const history = useHistory();
+    const { id } = useParams();
 
-    const [name, setName] = useState("");
-    const [title, setTitle] = useState("");
-    const [location, setLocation] = useState("");
-    const [aboutUs, setAboutUs] = useState("");
-    const [categoryId, setCategoryId] = useState();
-    const [groupImg, setGroupImg] = useState("");
-    const [image1, setImage1] = useState("");
-    const [image2, setImage2] = useState("");
-    const [image3, setImage3] = useState("");
-    const [image4, setImage4] = useState("");
-    const [image5, setImage5] = useState("");
+    const oneGroup = useSelector((state) => state.groups)
+
+    const [name, setName] = useState(oneGroup.name);
+    const [title, setTitle] = useState(oneGroup.title);
+    const [location, setLocation] = useState(oneGroup.location);
+    const [aboutUs, setAboutUs] = useState(oneGroup.aboutUs);
+    const [categoryId, setCategoryId] = useState(oneGroup.categoryId);
+    const [groupImg, setGroupImg] = useState(oneGroup.groupImg);
+    const [image1, setImage1] = useState(oneGroup.image1);
+    const [image2, setImage2] = useState(oneGroup.image2);
+    const [image3, setImage3] = useState(oneGroup.image3);
+    const [image4, setImage4] = useState(oneGroup.image4);
+    const [image5, setImage5] = useState(oneGroup.image5);
+    const [showModal, setShowModal] = useState(false);
     const [errors, setErrors] = useState([]);
+
+    const updateName = (e) => e.target.value === "" ? oneGroup.name : setName(e.target.value);
+    const updateTitle = (e) => setTitle(e.target.value);
+    const updateLocation = (e) => setLocation(e.target.value);
+    const updateAboutUs = (e) => setAboutUs(e.target.value);
+    const updateCategoryId = (e) => setCategoryId(e.target.value);
+    const updateGroupImg = (e) => setGroupImg(e.target.value);
+    const updateImage1 = (e) => setImage1(e.target.value);
+    const updateImage2 = (e) => setImage2(e.target.value);
+    const updateImage3 = (e) => setImage3(e.target.value);
+    const updateImage4 = (e) => setImage4(e.target.value);
+    const updateImage5 = (e) => setImage5(e.target.value);
 
     const handleSubmit = async (e) => {
         const errors = [];
-        if (name.length < 3) errors.push("Group names must be at least 3 or more characters");
+
+        // if (name.length < 3) errors.push("Group names must be at least 3 or more characters");
         if (title.length < 3) errors.push("Job-title must be at least 3 or more characters");
         if (!categoryId || categoryId === null) errors.push("A category must be selected");
         setErrors(errors);
@@ -32,7 +48,7 @@ function GroupFormPage() {
             return;
         }
 
-        let newGroup = {
+        let edit = {
             name,
             title,
             location,
@@ -43,38 +59,23 @@ function GroupFormPage() {
             image2,
             image3,
             image4,
-            image5
+            image5,
+            id
         };
-        const post = await dispatch(groupActions.newGroup(newGroup));
-        // console.log(post)
-        if (post) {
-            history.push('/');
-            reset();
+        const update = await dispatch(groupsActions.editOneGroup(edit));
+        console.log(update)
+        if (update) {
+            setShowModal(false);
         }
     };
 
-    const handleCategory = (e) => {
-        setCategoryId(e);
-    }
-
-    const reset = () => {
-        setName("");
-        setTitle("");
-        setLocation("");
-        setAboutUs("");
-        setCategoryId();
-        setGroupImg("");
-        setImage1("");
-        setImage2("");
-        setImage3("");
-        setImage4("");
-        setImage5("");
-        setErrors([]);
-    }
+    // const handleCategory = (e) => {
+    //     setCategoryId(e);
+    // }
 
     return (
-        <form className="new-group-form" onSubmit={handleSubmit}>
-            <div className="group-form-header"><h2>Create your own Group</h2></div>
+        <form onSubmit={handleSubmit}>
+            <div><h2>Edit Group</h2></div>
             <ul className="error-valid" style={{ textAlign: "center" }}>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
@@ -83,9 +84,8 @@ function GroupFormPage() {
                 <input
                     type="text"
                     value={name}
-                    placeholder="Group Name"
-                    onChange={(e) => setName(e.target.value)}
-                    required
+                    onChange={updateName}
+                // required
                 />
             </label>
             <label>
@@ -93,8 +93,8 @@ function GroupFormPage() {
                 <input
                     type="text"
                     value={title}
-                    placeholder="Job title"
-                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder={title}
+                    onChange={updateTitle}
                     required
                 />
             </label>
@@ -103,26 +103,24 @@ function GroupFormPage() {
                 <input
                     type="text"
                     value={location}
-                    placeholder="Location"
-                    onChange={(e) => setLocation(e.target.value)}
+                    onChange={updateLocation}
                 />
             </label>
             <label>
                 <div>Tell us about your Group</div>
                 <textarea
                     type="text"
-                    placeholder="Add a description"
                     value={aboutUs}
-                    onChange={(e) => setAboutUs(e.target.value)}
+                    onChange={updateAboutUs}
                 />
             </label>
             <label>
                 <span>Category:  </span>
                 <select
                     value={categoryId}
-                    onChange={(e) => handleCategory(e.target.value)}
+                    onChange={updateCategoryId}
                 >
-                    <option value={null} >Select One</option>
+                    <option value={null}>Select One</option>
                     <option value={1}>Adventure</option>
                     <option value={2}>Sports</option>
                     <option value={3}>Heros</option>
@@ -135,8 +133,7 @@ function GroupFormPage() {
                 <input
                     type="text"
                     value={groupImg}
-                    placeholder="Image"
-                    onChange={(e) => setGroupImg(e.target.value)}
+                    onChange={updateGroupImg}
                 />
             </label>
             <label>
@@ -144,8 +141,7 @@ function GroupFormPage() {
                 <input
                     type="text"
                     value={image1}
-                    placeholder="Image"
-                    onChange={(e) => setImage1(e.target.value)}
+                    onChange={updateImage1}
                 />
             </label>
             <label>
@@ -154,7 +150,7 @@ function GroupFormPage() {
                         type="text"
                         value={image2}
                         placeholder="Image"
-                        onChange={(e) => setImage2(e.target.value)}
+                        onChange={updateImage2}
                     />
                 </div>
             </label>
@@ -164,7 +160,7 @@ function GroupFormPage() {
                         type="text"
                         value={image3}
                         placeholder="Image"
-                        onChange={(e) => setImage3(e.target.value)}
+                        onChange={updateImage3}
                     />
                 </div>
             </label>
@@ -174,7 +170,7 @@ function GroupFormPage() {
                         type="text"
                         value={image4}
                         placeholder="image"
-                        onChange={(e) => setImage4(e.target.value)}
+                        onChange={updateImage4}
                     />
                 </div>
             </label>
@@ -184,15 +180,15 @@ function GroupFormPage() {
                         type="text"
                         value={image5}
                         placeholder="image"
-                        onChange={(e) => setImage5(e.target.value)}
+                        onChange={updateImage5}
                     />
                 </div>
             </label>
             <div>
-                <button type="submit" >Create new Group</button>
+                <button type="submit" >Edit Group</button>
             </div>
         </form >
-    );
+    )
 }
 
-export default GroupFormPage;
+export default EditGroupForm;
