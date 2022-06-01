@@ -52,6 +52,40 @@ router.post('/new', requireAuth, handleValidationErrors, asyncHandler(async (req
     });
 
     res.json(group);
+}));
+
+router.put('/:id', requireAuth, handleValidationErrors, asyncHandler(async (req, res) => {
+    const groupId = parseInt(req.params.id, 10);
+    const {
+        name,
+        title,
+        location,
+        aboutUs,
+        categoryId,
+        groupImg,
+        image1,
+        image2,
+        image3,
+        image4,
+        image5
+    } = req.body;
+
+    const group = await Group.findByPk(groupId);
+
+    group.name = name;
+    group.title = title;
+    group.location = location;
+    group.aboutUs = aboutUs;
+    group.categoryId = categoryId;
+    group.groupImg = groupImg;
+    group.image1 = image1;
+    group.image2 = image2;
+    group.image3 = image3;
+    group.image4 = image4;
+    group.image5 = image5;
+
+    await group.save();
+    res.json(group);
 }))
 
 module.exports = router;
