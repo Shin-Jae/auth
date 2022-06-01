@@ -55,6 +55,7 @@ function LoginForm() {
                     required
                 />
             </label>
+            <button type="submit">Log In</button>
             <span className='demo-btn'>
                 <button
                     type='submit'
@@ -63,7 +64,6 @@ function LoginForm() {
                     Demo
                 </button>
             </span>
-            <button type="submit">Log In</button>
         </form>
     );
 }

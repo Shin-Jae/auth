@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
+import EditGroup from "../EditGroupModal"
 import * as groupsActions from "../../store/group.js";
 import './SingleGroup.css'
 
@@ -33,6 +34,7 @@ function SingleGroup() {
                     {/* <div><span className="red">About us:</span> {group.aboutUs}</div> */}
                     <div><button type="submit">Write a review</button>
                         <button type="submit">Favorite</button></div>
+                    <EditGroup />
                     <div className="single-group-images1">
                         <img className="single-group-images" src={`${group.image1}`} alt="1"></img>
                         <img className="single-group-images" src={`${group.image2}`} alt="2"></img>
