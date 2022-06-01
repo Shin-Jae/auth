@@ -21,6 +21,7 @@ function GroupFormPage() {
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
+        e.preventDefault();
         const errors = [];
         if (name.length < 3) errors.push("Group names must be at least 3 or more characters");
         if (title.length < 3) errors.push("Job-title must be at least 3 or more characters");
@@ -28,7 +29,6 @@ function GroupFormPage() {
         setErrors(errors);
 
         if (errors.length) {
-            e.preventDefault();
             return;
         }
 
@@ -45,11 +45,11 @@ function GroupFormPage() {
             image4,
             image5
         };
-        const post = await dispatch(groupActions.newGroup(newGroup));
+        const group = await dispatch(groupActions.newGroup(newGroup));
         // console.log(post)
-        if (post) {
-            history.push(`/group/${post.id}`);
+        if (group) {
             reset();
+            history.push(`/group/${group.id}`);
         }
     };
 
