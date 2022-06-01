@@ -23,11 +23,11 @@ function EditGroupForm() {
     const [showModal, setShowModal] = useState(false);
     const [errors, setErrors] = useState([]);
 
-    const updateName = (e) => e.target.value === "" ? oneGroup.name : setName(e.target.value);
+    const updateName = (e) => setName(e.target.value);
     const updateTitle = (e) => setTitle(e.target.value);
     const updateLocation = (e) => setLocation(e.target.value);
     const updateAboutUs = (e) => setAboutUs(e.target.value);
-    const updateCategoryId = (e) => setCategoryId(e.target.value);
+    const updateCategoryId = (e) => e.target.value === null ? oneGroup.categoryId : setCategoryId(e.target.value);
     const updateGroupImg = (e) => setGroupImg(e.target.value);
     const updateImage1 = (e) => setImage1(e.target.value);
     const updateImage2 = (e) => setImage2(e.target.value);
@@ -38,9 +38,9 @@ function EditGroupForm() {
     const handleSubmit = async (e) => {
         const errors = [];
 
-        // if (name.length < 3) errors.push("Group names must be at least 3 or more characters");
-        if (title.length < 3) errors.push("Job-title must be at least 3 or more characters");
-        if (!categoryId || categoryId === null) errors.push("A category must be selected");
+        if (name.length < 3 && name.length > 0) errors.push("Group names must be at least 3 or more characters");
+        if (title.length < 3 && title.length > 0) errors.push("Job-title must be at least 3 or more characters");
+        // if (!categoryId || categoryId === null) errors.push("A category must be selected");
         setErrors(errors);
 
         if (errors.length) {
@@ -93,9 +93,9 @@ function EditGroupForm() {
                 <input
                     type="text"
                     value={title}
-                    placeholder={title}
+                    // placeholder={title}
                     onChange={updateTitle}
-                    required
+                // required
                 />
             </label>
             <label>
