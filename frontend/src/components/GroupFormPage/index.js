@@ -48,10 +48,14 @@ function GroupFormPage() {
         const post = await dispatch(groupActions.newGroup(newGroup));
         // console.log(post)
         if (post) {
-            history.push('/');
+            history.push(`/group/${post.id}`);
             reset();
         }
     };
+
+    // function handleClick() {
+    //     history.push("/");
+    // }
 
     const handleCategory = (e) => {
         setCategoryId(e);
@@ -189,7 +193,7 @@ function GroupFormPage() {
                 </div>
             </label>
             <div>
-                <button type="submit" >Create new Group</button>
+                <button type="submit">Create new Group</button>
             </div>
         </form >
     );

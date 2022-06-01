@@ -88,4 +88,17 @@ router.put('/:id', requireAuth, handleValidationErrors, asyncHandler(async (req,
     res.json(group);
 }))
 
+router.delete('/:id', requireAuth, asyncHandler(async (req, res) => {
+    const ownerId = req.user.id;
+    const id = parseInt(req.params.id, 10);
+
+    const group = await Group.findByPk(id);
+    if (ownerId !== group.ownerId) {
+        res.status(401);
+        return res.send("Invalid")
+    }
+    await group.destroy();
+    return res.send('Success');
+}))
+
 module.exports = router;

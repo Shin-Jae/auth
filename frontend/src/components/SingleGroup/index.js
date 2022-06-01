@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import EditGroup from "../EditGroupModal"
 import * as groupsActions from "../../store/group.js";
 import './SingleGroup.css'
+import DeleteModal from "../DeleteModal";
 
 function SingleGroup() {
     const { id } = useParams();
@@ -34,7 +35,10 @@ function SingleGroup() {
                     {/* <div><span className="red">About us:</span> {group.aboutUs}</div> */}
                     <div><button type="submit">Write a review</button>
                         <button type="submit">Favorite</button></div>
-                    <EditGroup />
+                    <div>
+                        <EditGroup />
+                        <DeleteModal />
+                    </div>
                     <div className="single-group-images1">
                         <img className="single-group-images" src={`${group.image1}`} alt="1"></img>
                         <img className="single-group-images" src={`${group.image2}`} alt="2"></img>
