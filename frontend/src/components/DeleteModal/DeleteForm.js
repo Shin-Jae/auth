@@ -19,16 +19,16 @@ function DeleteForm() {
         }
     }
 
-    const handleClick = () => {
-        // history.push(`/group/${id}`)
-    }
+    // const handleClick = () => {
+
+    // }
 
     return (
         <div>
             <div><h2>Are you sure you want to delete?</h2></div>
             <div>
                 <button type="submit" onClick={() => handleSubmit(id)}>Yes</button>
-                <button type="button" onClick={handleClick}>No</button>
+                {/* <button type="button" onClick={handleClick}>No</button> */}
             </div>
         </div>
     )
