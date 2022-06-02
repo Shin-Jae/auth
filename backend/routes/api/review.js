@@ -73,4 +73,17 @@ router.put('/:id', requireAuth, handleValidationErrors, asyncHandler(async (req,
     res.json(oneReview);
 }));
 
+router.delete('/:id', requireAuth, asyncHandler(async (req, res) => {
+    const userId = req.user.id;
+    const id = parseInt(req.params.id, 10);
+
+    const review = await Review.findByPk(id);
+    if (userId !== review.userId) {
+        res.status(401);
+        return res.send("Invalid")
+    }
+    await review.destroy();
+    return res.send('Success');
+}))
+
 module.exports = router;

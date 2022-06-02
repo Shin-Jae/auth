@@ -6,9 +6,10 @@ import * as reviewsActions from "../../store/review.js";
 function DeleteReviewForm({ id }) {
     const dispatch = useDispatch();
     const history = useHistory();
+    console.log('reviewId', id)
 
-    const handleSubmit = (id) => {
-        // dispatch(groupsActions.deleteOneGroup(id));
+    const handleSubmit = async (id) => {
+        await dispatch(reviewsActions.deleteOneReview(id));
         // if (dispatch) {
         //     // dispatch(groupsActions.getAllGroups());
         //     setTimeout(() => {

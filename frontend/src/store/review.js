@@ -4,6 +4,7 @@ const ALL_REVIEWS = "reviews/ALL_REVIEWS";
 const ONE_REVIEW = "reviews/ONE_REVIEW";
 const POST_REVIEW = "reviews/POST_REVIEW";
 const EDIT_REVIEW = "reviews/EDIT_REVIEW";
+const DELETE_REVIEW = "reviews/DELETE_REVIEW";
 
 export const allReviews = (reviews) => ({
     type: ALL_REVIEWS,
@@ -23,6 +24,11 @@ export const postReview = (review) => ({
 export const editReview = (review) => ({
     type: EDIT_REVIEW,
     review
+});
+
+export const deleteReview = (id) => ({
+    type: DELETE_REVIEW,
+    id
 })
 
 export const getAllReviews = () => async dispatch => {
@@ -69,6 +75,16 @@ export const editOneReview = review => async dispatch => {
         let edit = await response.json();
         dispatch(editReview(edit));
     }
+}
+
+export const deleteOneReview = id => async dispatch => {
+    const response = await csrfFetch(`/api/review/${id}`, {
+        method: "DELETE",
+    })
+    if (response.ok) {
+        dispatch(deleteReview(id));
+    }
+    return response;
 }
 
 const initialState = {};
