@@ -20,7 +20,7 @@ function HomePage() {
                 SlidezShow NOthign lik,e a new coat
             </div>
             <div className="recent-activity">
-                <h1>Recent Activity</h1>
+                <h1 className="recent-text">Recent Activity</h1>
                 <ul className="view-group-home">
                     {groups.map(group => {
                         return <li className="single-group-container" key={`group-${group.id}`}>

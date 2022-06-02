@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom';
 import * as groupsActions from "../../store/group.js";
 
-function DeleteForm() {
+function DeleteGroupForm() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
@@ -19,10 +19,6 @@ function DeleteForm() {
         }
     }
 
-    // const handleClick = () => {
-
-    // }
-
     return (
         <div>
             <div><h2>Are you sure you want to delete?</h2></div>
@@ -34,4 +30,4 @@ function DeleteForm() {
     )
 }
 
-export default DeleteForm;
+export default DeleteGroupForm;
