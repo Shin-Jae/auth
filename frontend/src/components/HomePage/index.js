@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import * as groupsActions from "../../store/group.js";
@@ -17,7 +17,6 @@ function HomePage() {
     return (
         <div>
             <div className="home-img-container">
-                {/* <img className="homepage-slide" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.AFBZmAzd2ndaGrfmYrQunAHaE7%26pid%3DApi&f=1" alt="" ></img> */}
                 SlidezShow NOthign lik,e a new coat
             </div>
             <div className="recent-activity">
@@ -40,9 +39,9 @@ function HomePage() {
                     })}
                 </ul>
             </div>
-            <div className="categories">
+            {/* <div className="categories">
                 <h1>Categories</h1>
-            </div>
+            </div> */}
         </div>
     )
 }
