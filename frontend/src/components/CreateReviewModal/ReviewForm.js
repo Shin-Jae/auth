@@ -17,7 +17,7 @@ function ReviewForm() {
     const handleSubmit = async (e) => {
         const errors = [];
         if (review.length < 5) errors.push("Reviews must be at least 5 or more characters");
-        if (rating.value < 6 && rating.value > 0) errors.push("Rating must be at between 1-5");
+        if (rating > 5 || rating <= 0) errors.push("Rating must be at between 1-5");
         setErrors(errors);
 
         if (errors.length) {

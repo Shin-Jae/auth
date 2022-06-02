@@ -16,15 +16,17 @@ function SingleGroup() {
     const oneGroup = useSelector((state) => state.groups)
     const oneReview = useSelector((state) => state.reviews)
     // console.log("kj;j;jk", oneReview)
-    // console.log('Before change', oneGroup);
 
     const group = Object.values(oneGroup);
     const review = Object.values(oneReview);
     // console.log('After change', group);
 
     useEffect(() => {
+
         dispatch(groupsActions.getOneGroup(id));
+
         dispatch(reviewsActions.getOneReview(id));
+
     }, [dispatch, id]);
 
     return (
