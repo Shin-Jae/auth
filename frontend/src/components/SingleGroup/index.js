@@ -3,22 +3,25 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import EditGroup from "../EditGroupModal"
 import * as groupsActions from "../../store/group.js";
+import * as reviewsActions from "../../store/review.js";
 import './SingleGroup.css'
 import DeleteModal from "../DeleteModal";
 
 function SingleGroup() {
     const { id } = useParams();
     const dispatch = useDispatch();
-    // const allGroups = useSelector((state) => state.groups);
     const oneGroup = useSelector((state) => state.groups)
-    // const groupReview = useSelector((state) => state.groups[id].Reviews)
-    console.log('Before change', oneGroup);
+    const oneReview = useSelector((state) => state.reviews)//[userId] === id
+    // console.log("kj;j;jk", oneReview)
+    // console.log('Before change', oneGroup);
+
     const group = Object.values(oneGroup);
-    // const review = Object.values(groupReview);
-    console.log('After change', group);
+    const review = Object.values(oneReview);
+    // console.log('After change', group);
 
     useEffect(() => {
         dispatch(groupsActions.getOneGroup(id));
+        dispatch(reviewsActions.getOneReview(id));
     }, [dispatch, id]);
 
     return (
@@ -43,18 +46,26 @@ function SingleGroup() {
                         <img className="single-group-images" src={`${group.image1}`} alt="1"></img>
                         <img className="single-group-images" src={`${group.image2}`} alt="2"></img>
                         <img className="single-group-images" src={`${group.image3}`} alt="3"></img>
+                        {/* <img className="single-group-images" src={`${group.image4}`} alt="4"></img>
+                        <img className="single-group-images" src={`${group.image5}`} alt="5"></img> */}
                     </div>
                 </div>
             })}
-            {/* {review.map(rev => {
-                return <div className="single-review-container">
-                    <img className="review-profile-img" src={`${rev.User.profileImg}`} alt="prof"></img>
-                    <div>User: {rev?.User.username}</div>
-                    <div>Rating: {rev?.rating}</div>
-                    <div>Review: {rev?.review}</div>
-                </div>
-            })} */}
-
+            <ul>
+                {review.map(rev => {
+                    return <li className="single-review-container" key={`review-${rev.id}`}>
+                        <img className="review-profile-img" src={`${rev.User.profileImg}`} alt="prof"></img>
+                        <div>User: {rev?.User.username}</div>
+                        <div>Rating: {rev?.rating}</div>
+                        <div>Review: {rev?.review}</div>
+                        <div>
+                            <img className="single-group-images" src={`${rev.image1}`} alt="r1"></img>
+                            <img className="single-group-images" src={`${rev.image2}`} alt="r2"></img>
+                            <img className="single-group-images" src={`${rev.image3}`} alt="r3"></img>
+                        </div>
+                    </li>
+                })}
+            </ul>
         </div>
     )
 }

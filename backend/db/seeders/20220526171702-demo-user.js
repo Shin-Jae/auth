@@ -13,13 +13,13 @@ module.exports = {
       {
         email: 'user1@user.io',
         username: 'FakeUser1',
-        profileImg: null,
+        profileImg: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.CicYSDwa4Bc800Tlzw9txAHaFj%26pid%3DApi&f=1",
         hashedPassword: bcrypt.hashSync('password2')
       },
       {
         email: 'user2@user.io',
         username: 'FakeUser2',
-        profileImg: null,
+        profileImg: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.0L8JYZIEpS0WdHFPnz6tjAHaE7%26pid%3DApi&f=1",
         hashedPassword: bcrypt.hashSync('password3')
       },
       {
