@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom';
 import * as groupsActions from "../../store/group.js";
@@ -7,7 +7,6 @@ function DeleteGroupForm() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
-    let [showModal, setShowModal] = useState(true);
 
     const handleSubmit = (id) => {
         dispatch(groupsActions.deleteOneGroup(id));
