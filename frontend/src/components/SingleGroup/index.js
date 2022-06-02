@@ -59,9 +59,9 @@ function SingleGroup() {
                         <div>Rating: {rev?.rating}</div>
                         <div>Review: {rev?.review}</div>
                         <div>
-                            <img className="single-group-images" src={`${review.image1}`} alt="r1"></img>
-                            <img className="single-group-images" src={`${review.image2}`} alt="r2"></img>
-                            <img className="single-group-images" src={`${review.image3}`} alt="r3"></img>
+                            <img className="single-group-images" src={`${rev.image1}`} alt="r1"></img>
+                            <img className="single-group-images" src={`${rev.image2}`} alt="r2"></img>
+                            <img className="single-group-images" src={`${rev.image3}`} alt="r3"></img>
                         </div>
                     </li>
                 })}

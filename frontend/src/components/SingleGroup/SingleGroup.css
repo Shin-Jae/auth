@@ -42,7 +42,14 @@
     height: 300px;
 }
 
+/* reviews */
 .single-review-container {
     border: 1px solid black;
     margin-top: 30px;
+}
+
+.review-profile-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
 }
