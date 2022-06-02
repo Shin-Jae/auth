@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 const ALL_REVIEWS = "reviews/ALL_REVIEWS";
 const ONE_REVIEW = "reviews/ONE_REVIEW";
+const POST_REVIEW = "reviews/POST_REVIEW";
 
 export const allReviews = (reviews) => ({
     type: ALL_REVIEWS,
@@ -11,7 +12,12 @@ export const allReviews = (reviews) => ({
 export const oneReview = (review) => ({
     type: ONE_REVIEW,
     review
-})
+});
+
+export const postReview = (review) => ({
+    type: POST_REVIEW,
+    review
+});
 
 export const getAllReviews = () => async dispatch => {
     const response = await csrfFetch(`/api/review`);
@@ -31,6 +37,22 @@ export const getOneReview = id => async dispatch => {
         dispatch(oneReview(review));
     };
 };
+
+export const newReview = review => async dispatch => {
+    const response = await csrfFetch(`/api/review/new`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(review),
+    });
+
+    if (response.ok) {
+        const review = await response.json();
+        dispatch(postReview(review));
+        return review;
+    }
+}
 
 const initialState = {};
 

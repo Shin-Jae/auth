@@ -15,27 +15,37 @@
 .recent-activity {
     position: absolute;
     top: 90%;
-    right: 45%;
 }
 
-.categories {
+.recent-text {
+    position: relative;
+    left: 58%;
+}
+
+/* .categories {
     position: absolute;
     top: 220%;
     right: 50%;
-}
+} */
 
 .red {
     color: red
 }
 
-/* .view-group-home {
-    border: 1px solid black;
-} */
+.view-group-home {
+    display: grid;
+    position: relative;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: 1fr 1fr 1fr; */
+    left: 20%;
+}
 
 .single-group-container {
-    /* display: grid; */
+    display: flex;
     border: 1px solid black;
-    margin-top: 20px
+    margin-top: 50px;
+    margin-right: 130px;
+
 }
 
 /* .homepage-slide {

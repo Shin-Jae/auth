@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import EditGroup from "../EditGroupModal"
+import EditGroup from "../EditGroupModal";
+import DeleteModal from "../DeleteModal";
+import CreateReviewModal from "../CreateReviewModal";
 import * as groupsActions from "../../store/group.js";
 import * as reviewsActions from "../../store/review.js";
 import './SingleGroup.css'
-import DeleteModal from "../DeleteModal";
 
 function SingleGroup() {
     const { id } = useParams();
@@ -36,7 +37,8 @@ function SingleGroup() {
                     <div className="single-group-location"><span className="red">Located:</span> {group.location}</div>
                     <div className="single-group-aboutUs"><span className="red">About Us:</span> {group.aboutUs}</div>
                     {/* <div><span className="red">About us:</span> {group.aboutUs}</div> */}
-                    <div><button type="submit">Write a review</button>
+                    <div>
+                        <CreateReviewModal />
                         <button type="submit">Favorite</button></div>
                     <div>
                         <EditGroup />
