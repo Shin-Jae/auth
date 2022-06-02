@@ -1,27 +1,21 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom';
-import * as groupsActions from "../../store/group.js";
+import * as reviewsActions from "../../store/review.js";
 
-function DeleteForm() {
-    const { id } = useParams();
+function DeleteReviewForm({ id }) {
     const dispatch = useDispatch();
     const history = useHistory();
-    let [showModal, setShowModal] = useState(true);
 
     const handleSubmit = (id) => {
-        dispatch(groupsActions.deleteOneGroup(id));
-        if (dispatch) {
-            // dispatch(groupsActions.getAllGroups());
-            setTimeout(() => {
-                history.push('/');
-            }, 100)
-        }
+        // dispatch(groupsActions.deleteOneGroup(id));
+        // if (dispatch) {
+        //     // dispatch(groupsActions.getAllGroups());
+        //     setTimeout(() => {
+        //         history.push('/');
+        //     }, 100)
+        // }
     }
-
-    // const handleClick = () => {
-
-    // }
 
     return (
         <div>
@@ -34,4 +28,4 @@ function DeleteForm() {
     )
 }
 
-export default DeleteForm;
+export default DeleteReviewForm;

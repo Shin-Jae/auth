@@ -20,7 +20,6 @@ function EditGroupForm() {
     const [image3, setImage3] = useState(oneGroup.image3);
     const [image4, setImage4] = useState(oneGroup.image4);
     const [image5, setImage5] = useState(oneGroup.image5);
-    const [showModal, setShowModal] = useState(false);
     const [errors, setErrors] = useState([]);
 
     const updateName = (e) => setName(e.target.value);
@@ -64,9 +63,6 @@ function EditGroupForm() {
         };
         const update = await dispatch(groupsActions.editOneGroup(edit));
         console.log(update)
-        if (update) {
-            setShowModal(false);
-        }
     };
 
     // const handleCategory = (e) => {

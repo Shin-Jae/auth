@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import EditReviewForm from './EditReviewForm';
+import DeleteReviewForm from './DeleteReviewForm';
 
-function EditReviewModal({ id }) {
+
+function DeleteReviewModal({ id }) {
     const [showModal, setShowModal] = useState(false);
 
     return (
         <>
             <div>
-                <button onClick={() => setShowModal(true)}>Edit Group</button>
+                <button onClick={() => setShowModal(true)}>Delete</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <EditReviewForm id={id} />
+                        <DeleteReviewForm id={id} />
                     </Modal>
                 )}
             </div>
@@ -19,4 +20,4 @@ function EditReviewModal({ id }) {
     );
 }
 
-export default EditReviewModal;
+export default DeleteReviewModal;

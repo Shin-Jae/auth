@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 const ALL_REVIEWS = "reviews/ALL_REVIEWS";
 const ONE_REVIEW = "reviews/ONE_REVIEW";
 const POST_REVIEW = "reviews/POST_REVIEW";
+const EDIT_REVIEW = "reviews/EDIT_REVIEW";
 
 export const allReviews = (reviews) => ({
     type: ALL_REVIEWS,
@@ -18,6 +19,11 @@ export const postReview = (review) => ({
     type: POST_REVIEW,
     review
 });
+
+export const editReview = (review) => ({
+    type: EDIT_REVIEW,
+    review
+})
 
 export const getAllReviews = () => async dispatch => {
     const response = await csrfFetch(`/api/review`);
@@ -54,10 +60,21 @@ export const newReview = review => async dispatch => {
     }
 }
 
+export const editOneReview = review => async dispatch => {
+    const response = await csrfFetch(`/api/review/${review.id}`, {
+        method: "PUT",
+        body: JSON.stringify(review)
+    });
+    if (response.ok) {
+        let edit = await response.json();
+        dispatch(editReview(edit));
+    }
+}
+
 const initialState = {};
 
 const reviewReducer = (state = initialState, action) => {
-    // let newState = { ...state };
+    let newState = { ...state };
     switch (action.type) {
         case ALL_REVIEWS:
             const reviews = {};
@@ -73,6 +90,15 @@ const reviewReducer = (state = initialState, action) => {
                 oneReview[review.id] = review;
             }
             return { ...oneReview };
+        case EDIT_REVIEW:
+            newState.reviews = state.reviews.map((review) => {
+                if (review.id === action.review.id) {
+                    return action.review;
+                } else {
+                    return review;
+                }
+            });
+            return newState;
         default:
             return state;
     }

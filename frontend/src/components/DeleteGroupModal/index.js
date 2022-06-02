@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
-import DeleteForm from './DeleteForm';
+import DeleteGroupForm from './DeleteGroupForm';
 
 
-function DeleteModal() {
+function DeleteGroupModal() {
     const [showModal, setShowModal] = useState(false);
 
     return (
@@ -12,7 +12,7 @@ function DeleteModal() {
                 <button onClick={() => setShowModal(true)}>Delete</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <DeleteForm />
+                        <DeleteGroupForm />
                     </Modal>
                 )}
             </div>
@@ -20,4 +20,4 @@ function DeleteModal() {
     );
 }
 
-export default DeleteModal;
+export default DeleteGroupModal;

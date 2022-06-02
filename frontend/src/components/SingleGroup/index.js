@@ -2,17 +2,19 @@ import { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import EditGroup from "../EditGroupModal";
-import DeleteModal from "../DeleteModal";
+import DeleteGroupModal from "../DeleteGroupModal";
 import CreateReviewModal from "../CreateReviewModal";
+import EditReviewModal from "../EditReviewModal";
 import * as groupsActions from "../../store/group.js";
 import * as reviewsActions from "../../store/review.js";
 import './SingleGroup.css'
+import DeleteReviewModal from "../DeleteReviewModal";
 
 function SingleGroup() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const oneGroup = useSelector((state) => state.groups)
-    const oneReview = useSelector((state) => state.reviews)//[userId] === id
+    const oneReview = useSelector((state) => state.reviews)
     // console.log("kj;j;jk", oneReview)
     // console.log('Before change', oneGroup);
 
@@ -42,7 +44,7 @@ function SingleGroup() {
                         <button type="submit">Favorite</button></div>
                     <div>
                         <EditGroup />
-                        <DeleteModal />
+                        <DeleteGroupModal />
                     </div>
                     <div className="single-group-images1">
                         <img className="single-group-images" src={`${group.image1}`} alt="1"></img>
@@ -64,6 +66,10 @@ function SingleGroup() {
                             <img className="single-group-images" src={`${rev.image1}`} alt="r1"></img>
                             <img className="single-group-images" src={`${rev.image2}`} alt="r2"></img>
                             <img className="single-group-images" src={`${rev.image3}`} alt="r3"></img>
+                        </div>
+                        <div>
+                            <EditReviewModal id={rev.id} />
+                            <DeleteReviewModal id={rev.id} />
                         </div>
                     </li>
                 })}

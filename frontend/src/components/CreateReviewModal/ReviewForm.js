@@ -12,7 +12,6 @@ function ReviewForm() {
     const [image1, setImage1] = useState("");
     const [image2, setImage2] = useState("");
     const [image3, setImage3] = useState("");
-    const [showModal, setShowModal] = useState(true);
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
@@ -37,7 +36,6 @@ function ReviewForm() {
         const post = await dispatch(reviewActions.newReview(postReview));
         console.log(post)
         if (post) {
-            setShowModal(false);
             reset();
         }
     };
