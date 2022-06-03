@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import LoginFormModal from '../LoginFormModal';
 import './Navigation.css';
+import SignupFormModal from '../SignupModal';
 
 function Navigation({ isLoaded }) {
     const sessionUser = useSelector(state => state.session.user);
@@ -19,7 +20,9 @@ function Navigation({ isLoaded }) {
                 <span className='login-btn'>
                     <LoginFormModal />
                 </span>
-                <NavLink to="/signup" style={{ textDecoration: "none" }}>Sign Up</NavLink>
+                <span className='signup-btn'>
+                    <SignupFormModal />
+                </span>
             </>
         );
     }
@@ -28,7 +31,7 @@ function Navigation({ isLoaded }) {
         <ul className='nav-container'>
             <li className='nav-links'>
                 <span>
-                    <NavLink exact to="/" style={{ color: "blue", textDecoration: "none" }}>
+                    <NavLink exact to="/" style={{ color: "orange", textDecoration: "none" }}>
                         <i className="fa-solid fa-people-group fa-2xl"></i>
                         <div className='home-text'>
                             YelpSquad

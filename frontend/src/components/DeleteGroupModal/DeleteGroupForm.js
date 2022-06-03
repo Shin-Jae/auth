@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom';
 import * as groupsActions from "../../store/group.js";
 
@@ -7,26 +7,35 @@ function DeleteGroupForm() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
-    let [showModal, setShowModal] = useState(true);
 
-    const handleSubmit = (id) => {
+    const currentUser = useSelector((state) => state.session.user.id)
+    const ownerId = useSelector((state) => state.groups[id].ownerId)
+    console.log(ownerId)
+
+    const handleSubmit = (e, id) => {
+        if (currentUser !== ownerId) {
+            return alert("Cannot delete other user's reviews")
+        }
+
+        e.preventDefault();
+
         dispatch(groupsActions.deleteOneGroup(id));
         if (dispatch) {
             // dispatch(groupsActions.getAllGroups());
-            setTimeout(() => {
+            return setTimeout(() => {
                 history.push('/');
             }, 100)
         }
     }
 
     return (
-        <div>
+        <form onSubmit={(e) => handleSubmit(e, id)}>
             <div><h2>Are you sure you want to delete?</h2></div>
             <div>
-                <button type="submit" onClick={() => handleSubmit(id)}>Yes</button>
+                <button type="submit" >Yes</button>
                 {/* <button type="button" onClick={handleClick}>No</button> */}
             </div>
-        </div>
+        </form>
     )
 }
 
