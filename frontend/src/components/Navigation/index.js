@@ -17,10 +17,10 @@ function Navigation({ isLoaded }) {
     } else {
         sessionLinks = (
             <>
-                <span className='login-btn'>
+                <span>
                     <LoginFormModal />
                 </span>
-                <span className='signup-btn'>
+                <span>
                     <SignupFormModal />
                 </span>
             </>
@@ -38,9 +38,9 @@ function Navigation({ isLoaded }) {
                         </div>
                     </NavLink>
                 </span>
-                <span>
-                    <input type="text" placeholder='Search' />
-                    <button>Search</button>
+                <span className='search'>
+                    <input className='search-input' type="text" placeholder='Search' />
+                    <button className='search-btn'>Search</button>
                 </span>
                 <span className='auth-btns'>
                     {isLoaded && sessionLinks}

@@ -1,0 +1,45 @@
+
+.signup-btn {
+    background-color: white;
+    border: none;
+    margin-right: 40px;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.signup-btn-text {
+    color: blue;
+    font-weight: bold;
+}
+
+.signup-form {
+    position: relative;
+    background-color: whitesmoke;
+    width: 350px;
+    height: 420px;
+    border-radius: 10%;
+    text-align: center;
+}
+
+.signup-header {
+    padding-top: 20px;
+}
+
+.signup-errors {
+    color: red;
+    text-align: left;
+}
+
+.signup-fields {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.signup-email {
+    margin-top: 30px;
+}
+
+.signup-submit {
+    margin-top: 15px;
+}
