@@ -71,7 +71,7 @@ function SingleGroup() {
                         </div>
                         <div>
                             <EditReviewModal id={rev.id} />
-                            <DeleteReviewModal id={rev.id} />
+                            <DeleteReviewModal id={rev.id} userId={rev.userId} />
                         </div>
                     </li>
                 })}

@@ -8,24 +8,25 @@ function DeleteGroupForm() {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const handleSubmit = (id) => {
+    const handleSubmit = (e, id) => {
+        e.preventDefault();
         dispatch(groupsActions.deleteOneGroup(id));
         if (dispatch) {
             // dispatch(groupsActions.getAllGroups());
-            setTimeout(() => {
+            return setTimeout(() => {
                 history.push('/');
             }, 100)
         }
     }
 
     return (
-        <div>
+        <form onSubmit={(e) => handleSubmit(e, id)}>
             <div><h2>Are you sure you want to delete?</h2></div>
             <div>
-                <button type="submit" onClick={() => handleSubmit(id)}>Yes</button>
+                <button type="submit" >Yes</button>
                 {/* <button type="button" onClick={handleClick}>No</button> */}
             </div>
-        </div>
+        </form>
     )
 }
 
