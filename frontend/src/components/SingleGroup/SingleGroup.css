@@ -4,20 +4,21 @@
 
 .single-group-profile-img {
     border-radius: 50%;
-    height: 300px;
-    width: 300px;
+    height: 150px;
+    width: 200px;
 }
 
 .single-group-name {
     display: inline;
-    position: absolute;
-    font-size: 120px;
-    margin-top: 70px;
+    position: relative;
+    font-size: 100px;
+    padding-top: -10px;
     margin-left: 100px;
 }
 
 .total-rating {
-    margin-left: 100px;
+    display: flex;
+    margin-left: 300px;
     font-size: 60px;
 }
 
@@ -39,7 +40,8 @@
     display: inline-flex;
     align-content: space-between;
     padding: 50px;
-    height: 300px;
+    height: 250px;
+    width: 350px;
 }
 
 /* reviews */

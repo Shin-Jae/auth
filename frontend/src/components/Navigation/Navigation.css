@@ -11,10 +11,25 @@
     justify-content: space-between;
 }
 
+.search-input {
+    height: 30px;
+    width: 300px;
+    border-radius: 5px 0px 0px 5px;
+    border: 2px solid orange;
+}
+
+.search-btn {
+    height: 36px;
+    width: 80px;
+    background-color: orange;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+}
+
 .auth-btns {
     margin-right: 20px;
 }
 
-.login-btn {
-    margin-right: 10px;
+.home-icon {
+    margin-left: 13px;
 }

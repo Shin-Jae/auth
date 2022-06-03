@@ -53,6 +53,8 @@ router.post('/new', requireAuth, handleValidationErrors, asyncHandler(async (req
 
 router.put('/:id', requireAuth, handleValidationErrors, asyncHandler(async (req, res) => {
     const reviewId = parseInt(req.params.id, 10);
+    const userId = req.user.id;
+
     const {
         rating,
         review,
@@ -62,6 +64,11 @@ router.put('/:id', requireAuth, handleValidationErrors, asyncHandler(async (req,
     } = req.body;
 
     const edit = await Review.findByPk(reviewId);
+
+    if (userId !== edit.userId) {
+        res.status(401);
+        return res.send("Invalid")
+    }
 
     edit.rating = rating;
     edit.review = review;

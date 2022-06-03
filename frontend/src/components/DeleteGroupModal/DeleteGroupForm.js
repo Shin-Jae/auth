@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom';
 import * as groupsActions from "../../store/group.js";
+import "./DeleteModal.css"
 
 function DeleteGroupForm() {
     const { id } = useParams();
@@ -29,8 +30,8 @@ function DeleteGroupForm() {
     }
 
     return (
-        <form onSubmit={(e) => handleSubmit(e, id)}>
-            <div><h2>Are you sure you want to delete?</h2></div>
+        <form className="delete-modal" onSubmit={(e) => handleSubmit(e, id)}>
+            <div><h2 className="delete-msg">Are you sure you want to delete?</h2></div>
             <div>
                 <button type="submit" >Yes</button>
                 {/* <button type="button" onClick={handleClick}>No</button> */}

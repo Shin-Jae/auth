@@ -17,10 +17,10 @@ function Navigation({ isLoaded }) {
     } else {
         sessionLinks = (
             <>
-                <span className='login-btn'>
+                <span>
                     <LoginFormModal />
                 </span>
-                <span className='signup-btn'>
+                <span>
                     <SignupFormModal />
                 </span>
             </>
@@ -32,15 +32,15 @@ function Navigation({ isLoaded }) {
             <li className='nav-links'>
                 <span>
                     <NavLink exact to="/" style={{ color: "orange", textDecoration: "none" }}>
-                        <i className="fa-solid fa-people-group fa-2xl"></i>
+                        <i className="home-icon fa-solid fa-people-group fa-2xl"></i>
                         <div className='home-text'>
                             YelpSquad
                         </div>
                     </NavLink>
                 </span>
-                <span>
-                    <input type="text" placeholder='Search' />
-                    <button>Search</button>
+                <span className='search'>
+                    <input className='search-input' type="text" placeholder='Search' />
+                    <button className='search-btn'>Search</button>
                 </span>
                 <span className='auth-btns'>
                     {isLoaded && sessionLinks}

@@ -1,0 +1,50 @@
+.login-btn {
+    background-color: transparent;
+    border: none;
+    margin-right: 40px;
+    border: 2px solid white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.login-btn-text {
+    color: white;
+    font-weight: bold;
+}
+
+.login-form {
+    position: relative;
+    background-color:white;
+    width: 300px;
+    height: 300px;
+    border-radius: 10%;
+    text-align: center;
+}
+
+.login-modal-header {
+    padding-top: 30px;
+}
+
+.login-error-valid {
+    text-align: left;
+    margin-bottom: -10px;
+}
+
+.login-username {
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+.login-password {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.login-btns {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.demo-btn {
+    margin-left: 40px;
+}

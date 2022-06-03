@@ -24,13 +24,13 @@ function HomePage() {
                 <ul className="view-group-home">
                     {groups.map(group => {
                         return <li className="single-group-container" key={`group-${group.id}`}>
-                            <NavLink exact to={`/group/${group.id}`} style={{ textDecoration: "none", color: "blue" }}>
-                                <div><img className="group-profile-img" src={`${group.groupImg}`} alt=""></img></div>
-                                <div><span className="red">Group:</span> {group.name}</div>
-                                <div><span className="red">Job:</span> {group.title}</div>
+                            <NavLink exact to={`/group/${group.id}`} style={{ textDecoration: "none", color: "black" }}>
+                                <div className="contain"><img className="group-profile-img" src={`${group.groupImg}`} alt=""></img>
+                                    <div className="group-name">{group.name}</div></div>
+                                <span ><div className="job-title">{group.title}</div></span>
                                 {/* <div><span className="red">About us:</span> {group.aboutUs}</div> */}
                                 <div>
-                                    <img className="group-images" src={`${group.image1}`} alt="1"></img>
+                                    <img className="group-images first" src={`${group.image1}`} alt="1"></img>
                                     <img className="group-images" src={`${group.image2}`} alt="2"></img>
                                     {/* <img className="group-images" src={`${group.image3}`} alt="3"></img> */}
                                 </div>
@@ -42,7 +42,7 @@ function HomePage() {
             {/* <div className="categories">
                 <h1>Categories</h1>
             </div> */}
-        </div>
+        </div >
     )
 }
 

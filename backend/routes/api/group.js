@@ -56,6 +56,8 @@ router.post('/new', requireAuth, handleValidationErrors, asyncHandler(async (req
 
 router.put('/:id', requireAuth, handleValidationErrors, asyncHandler(async (req, res) => {
     const groupId = parseInt(req.params.id, 10);
+    const ownerId = req.user.id;
+
     const {
         name,
         title,
@@ -71,6 +73,11 @@ router.put('/:id', requireAuth, handleValidationErrors, asyncHandler(async (req,
     } = req.body;
 
     const group = await Group.findByPk(groupId);
+
+    if (ownerId !== group.ownerId) {
+        res.status(401);
+        return res.send("Invalid")
+    }
 
     group.name = name;
     group.title = title;

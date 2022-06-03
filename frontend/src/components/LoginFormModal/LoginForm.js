@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
+import './LoginForm.css';
 
 function LoginForm() {
     const dispatch = useDispatch();
@@ -31,14 +32,17 @@ function LoginForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
+        <form className="login-form" onSubmit={handleSubmit}>
+            <h3 className="login-modal-header">Log in</h3>
+            <ul className="login-error-valid" style={{ color: "red", listStyle: 'none' }}>
                 {errors.map((error, idx) => (
                     <li key={idx}>{error}</li>
                 ))}
             </ul>
             <label>
-                Username or Email
+                <div className="login-username">
+                    Username or Email
+                </div>
                 <input
                     type="text"
                     value={credential}
@@ -47,7 +51,9 @@ function LoginForm() {
                 />
             </label>
             <label>
-                Password
+                <div className="login-password">
+                    Password
+                </div>
                 <input
                     type="password"
                     value={password}
@@ -55,15 +61,17 @@ function LoginForm() {
                     required
                 />
             </label>
-            <button type="submit">Log In</button>
-            <span className='demo-btn'>
-                <button
-                    type='submit'
-                    onClick={demoUser}
-                >
-                    Demo
-                </button>
-            </span>
+            <div className="login-btns">
+                <button type="submit">Log In</button>
+                <span className='demo-btn'>
+                    <button
+                        type='submit'
+                        onClick={demoUser}
+                    >
+                        Demo
+                    </button>
+                </span>
+            </div>
         </form>
     );
 }
