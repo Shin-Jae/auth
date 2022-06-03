@@ -17,8 +17,8 @@ function DeleteReviewForm({ id, userId }) {
     }
 
     return (
-        <form onSubmit={() => handleSubmit(id)}>
-            <div><h2>Are you sure you want to delete?</h2></div>
+        <form className="delete-modal" onSubmit={() => handleSubmit(id)}>
+            <div><h2 className="delete-msg">Are you sure you want to delete?</h2></div>
             <div>
                 <button type="submit" onClick={handleClick}>Yes</button>
             </div>

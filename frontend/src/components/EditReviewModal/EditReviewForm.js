@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as reviewActions from '../../store/review';
+import './EditReview.css';
 
 function EditReviewForm({ id }) {
     const dispatch = useDispatch();
@@ -58,7 +59,7 @@ function EditReviewForm({ id }) {
 
     return (
         <form className="new-review-form" onSubmit={handleSubmit}>
-            <div className="review-form-header">Write a review</div>
+            <h2 className="review-form-header">Edit a review</h2>
             <ul className="error-valid" style={{ textAlign: "center" }}>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>

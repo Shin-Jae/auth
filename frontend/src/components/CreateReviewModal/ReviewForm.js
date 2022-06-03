@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import * as reviewActions from '../../store/review';
+import "./CreateReview.css";
 
 function ReviewForm() {
     const dispatch = useDispatch();
@@ -51,8 +52,8 @@ function ReviewForm() {
 
     return (
         <form className="new-review-form" onSubmit={handleSubmit}>
-            <div className="review-form-header">Write a review</div>
-            <ul className="error-valid" style={{ textAlign: "center" }}>
+            <h2 className="review-form-header">Write a review</h2>
+            <ul className="error-valid" style={{ textAlign: "center", color: "red" }}>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label>

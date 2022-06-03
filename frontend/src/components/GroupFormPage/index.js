@@ -46,7 +46,7 @@ function GroupFormPage() {
             image5
         };
         const group = await dispatch(groupActions.newGroup(newGroup));
-        // console.log(post)
+        // console.log("dkasfjdlkfs;jadklf", group)
         if (group) {
             reset();
             history.push(`/group/${group.id}`);

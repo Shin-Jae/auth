@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom';
 import * as groupsActions from "../../store/group.js";
+import './EditGroup.css';
 
 function EditGroupForm() {
     const dispatch = useDispatch();
@@ -70,13 +71,13 @@ function EditGroupForm() {
     // }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div><h2>Edit Group</h2></div>
-            <ul className="error-valid" style={{ textAlign: "center" }}>
+        <form className="edit-group-form" onSubmit={handleSubmit}>
+            <div><h2 className="edit-group-header">Edit Group</h2></div>
+            <ul className="error-valid" style={{ textAlign: "center", color: 'red' }}>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label>
-                <div>What is your Groups name?</div>
+                <div className="edit-group-text">What is your Groups name?</div>
                 <input
                     type="text"
                     value={name}
@@ -85,17 +86,17 @@ function EditGroupForm() {
                 />
             </label>
             <label>
-                <div>What does your Group do?</div>
+                <div className="edit-group-text">What is your Groups Title?</div>
                 <input
                     type="text"
                     value={title}
-                    // placeholder={title}
+                    placeholder="ex. Band, Sports Team, etc"
                     onChange={updateTitle}
                 // required
                 />
             </label>
             <label>
-                <div>Where is your Group located?</div>
+                <div className="edit-group-text">Where is your Group located?</div>
                 <input
                     type="text"
                     value={location}
@@ -103,15 +104,16 @@ function EditGroupForm() {
                 />
             </label>
             <label>
-                <div>Tell us about your Group</div>
+                <div className="edit-group-text">Tell us about your Group</div>
                 <textarea
                     type="text"
                     value={aboutUs}
                     onChange={updateAboutUs}
+                    placeholder="ex. We are the greatest team, assembled from all corners of the Earth. Who came together when the world needed people they can count on..."
                 />
             </label>
             <label>
-                <span>Category:  </span>
+                <div className="edit-group-text">Category:  </div>
                 <select
                     value={categoryId}
                     onChange={updateCategoryId}
@@ -125,7 +127,7 @@ function EditGroupForm() {
                 </select>
             </label>
             <label>
-                <div>Group Profile Image:</div>
+                <div className="edit-group-text">Group Profile Image:</div>
                 <input
                     type="text"
                     value={groupImg}
@@ -133,7 +135,7 @@ function EditGroupForm() {
                 />
             </label>
             <label>
-                <div>Group Images</div>
+                <div className="edit-group-text">Group Images</div>
                 <input
                     type="text"
                     value={image1}

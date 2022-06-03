@@ -32,7 +32,7 @@ function Navigation({ isLoaded }) {
             <li className='nav-links'>
                 <span>
                     <NavLink exact to="/" style={{ color: "orange", textDecoration: "none" }}>
-                        <i className="fa-solid fa-people-group fa-2xl"></i>
+                        <i className="home-icon fa-solid fa-people-group fa-2xl"></i>
                         <div className='home-text'>
                             YelpSquad
                         </div>

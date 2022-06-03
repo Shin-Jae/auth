@@ -6,11 +6,48 @@
 
 .session-nav {
     padding-right: 50px;
-    font-size: 25px;
+}
+
+.logged-in-nav {
+    display: flex;
+    flex-direction: row;
 }
 
 .welcome-msg {
+    font-size: 25px;
+    font-weight: bold;
     margin-left: -100px;
     margin-right: 100px;
     color: orange
+}
+
+.new-group-btn {
+    background-color: orange;
+    border: none;
+    margin-right: 40px;
+    border: 2px solid orange;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.new-group-btn-text {
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+}
+
+.profile-dropdown {
+    position: absolute;
+    right: 1.5%;
+    top: 12%;
+}
+
+.log-out-btn {
+    background-color: transparent;
+    border: 2px solid orange;
+    height: 35px;
+    width: 90px;
+    border-radius: 5px;
+    color: orange;
+    font-weight: bold;
 }
