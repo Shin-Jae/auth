@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from 'react-router-dom';
 import * as groupsActions from "../../store/group.js";
 
@@ -8,8 +8,17 @@ function DeleteGroupForm() {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const currentUser = useSelector((state) => state.session.user.id)
+    const ownerId = useSelector((state) => state.groups[id].ownerId)
+    console.log(ownerId)
+
     const handleSubmit = (e, id) => {
+        if (currentUser !== ownerId) {
+            return alert("Cannot delete other user's reviews")
+        }
+
         e.preventDefault();
+
         dispatch(groupsActions.deleteOneGroup(id));
         if (dispatch) {
             // dispatch(groupsActions.getAllGroups());
