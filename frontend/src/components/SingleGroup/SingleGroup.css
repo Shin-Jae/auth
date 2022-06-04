@@ -2,46 +2,68 @@
     border: 1px solid black
 }
 
+.one-group-header-container {
+    display: inline-flex;
+    padding-top: 60px;
+    padding-left: 30px;
+}
+
 .single-group-profile-img {
     border-radius: 50%;
-    height: 150px;
+    height: 200px;
     width: 200px;
+    border: 1px solid lightgrey;
 }
 
 .single-group-name {
     display: inline;
     position: relative;
-    font-size: 100px;
+    font-size: 60px;
     padding-top: -10px;
     margin-left: 100px;
 }
 
+.edit-delete-btns {
+    display: inline-flex;
+    padding-left: 300px;
+    margin-top: -60px;
+}
+
 .total-rating {
     display: flex;
-    margin-left: 300px;
+    margin-left: 100px;
     font-size: 60px;
+}
+
+.single-group-text {
+    font-size: 20px;
+    padding-bottom: 10px;
 }
 
 .single-group-title {
     margin-top: 50px;
-    font-size: 30px;
 }
 
-.single-group-location {
-    font-size: 30px;
-}
 
 .single-group-aboutUs {
-    font-size: 30px;
     margin-bottom: 50px;
 }
 
+.single-group-images-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 40px;
+}
+
 .single-group-images {
-    display: inline-flex;
-    align-content: space-between;
-    padding: 50px;
     height: 250px;
-    width: 350px;
+    width: 465px;
+}
+
+.one-group-btns {
+    display: inline-flex;
+    max-width: 600px;
+    justify-content: space-between;
 }
 
 /* reviews */
@@ -54,4 +76,5 @@
     height: 100px;
     width: 100px;
     border-radius: 50%;
+    border: 1px solid lightgrey;
 }

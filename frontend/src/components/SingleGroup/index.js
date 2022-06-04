@@ -33,22 +33,25 @@ function SingleGroup() {
         <div>
             {group.map(group => {
                 return <div className="one-group-container" key={`${group.id}`}>
-                    <div><img className="single-group-profile-img" src={`${group.groupImg}`} alt=""></img>
-                        <h1 className="single-group-name">{group.name}</h1>
-                        <span className="total-rating">⭐️ ⭐️ ⭐️ ⭐️ ⭐️</span>
+                    <div className="one-group-header-container"><img className="single-group-profile-img" src={`${group.groupImg}`} alt=""></img>
+                        <div><h1 className="single-group-name">{group.name}</h1></div>
+                        <div className="edit-delete-btns">
+                            <EditGroup />
+                            <DeleteGroupModal />
+                        </div>
                     </div>
-                    <div className="single-group-title"><span className="red">Job:</span> {group.title}</div>
-                    <div className="single-group-location"><span className="red">Located:</span> {group.location}</div>
-                    <div className="single-group-aboutUs"><span className="red">About Us:</span> {group.aboutUs}</div>
+                    <span className="total-rating">⭐️ ⭐️ ⭐️ ⭐️ ⭐️</span>
+                    <div className="single-group-title single-group-text"><span className="red">Job:</span> {group.title}</div>
+                    <div className="single-group-location single-group-text"><span className="red">Located:</span> {group.location}</div>
+                    <div className="single-group-aboutUs single-group-text"><span className="red">About Us:</span> {group.aboutUs}</div>
                     {/* <div><span className="red">About us:</span> {group.aboutUs}</div> */}
-                    <div>
-                        <CreateReviewModal />
-                        <button type="submit">Favorite</button></div>
-                    <div>
-                        <EditGroup />
-                        <DeleteGroupModal />
+                    <div className="one-group-btns">
+                        <div>
+                            <CreateReviewModal />
+                        </div>
+
                     </div>
-                    <div className="single-group-images1">
+                    <div className="single-group-images-container">
                         <img className="single-group-images" src={`${group.image1}`} alt="1"></img>
                         <img className="single-group-images" src={`${group.image2}`} alt="2"></img>
                         <img className="single-group-images" src={`${group.image3}`} alt="3"></img>
@@ -64,7 +67,7 @@ function SingleGroup() {
                         <div>User: {rev?.User.username}</div>
                         <div>Rating: {rev?.rating}</div>
                         <div>Review: {rev?.review}</div>
-                        <div>
+                        <div className="single-group-images-container">
                             <img className="single-group-images" src={`${rev.image1}`} alt="r1"></img>
                             <img className="single-group-images" src={`${rev.image2}`} alt="r2"></img>
                             <img className="single-group-images" src={`${rev.image3}`} alt="r3"></img>
