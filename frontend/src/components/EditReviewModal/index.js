@@ -8,7 +8,7 @@ function EditReviewModal({ id }) {
     return (
         <>
             <div>
-                <button onClick={() => setShowModal(true)}>Edit Group</button>
+                <button className='edit-btn' onClick={() => setShowModal(true)}>Edit Review</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
                         <EditReviewForm id={id} />

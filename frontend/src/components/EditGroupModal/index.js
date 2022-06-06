@@ -8,7 +8,7 @@ function EditGroup() {
     return (
         <>
             <div>
-                <button className='edit-btn' onClick={() => setShowModal(true)}>Edit Group</button>
+                <button className='edit-btn' onClick={() => setShowModal(true)}>Edit Squad</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
                         <EditGroupForm />

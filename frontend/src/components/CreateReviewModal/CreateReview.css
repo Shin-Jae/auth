@@ -12,5 +12,12 @@
 }
 
 .create-review-btn {
-
+    background-color: navy;
+    border: none;
+    height: 50px;
+    width: 130px;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

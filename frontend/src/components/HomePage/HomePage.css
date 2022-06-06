@@ -29,7 +29,8 @@
 }
 
 .red {
-    color: red
+    color: goldenrod;
+    font-weight: bold
 }
 
 .view-group-home {

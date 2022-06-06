@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react";
 import './StarRating.css'
 
 
 function StarRating({ avg }) {
-    const [rating, setRating] = useState(0);
-    const [hover, setHover] = useState(0);
-    console.log('avegare rating', avg)
-
-    // let arr = []
-
     if (avg >= .75 && avg <= 1.49) avg = 1
     else if (avg >= 1.5 && avg <= 2.49) avg = 2
     else if (avg >= 2.5 && avg <= 3.49) avg = 3
     else if (avg >= 3.5 && avg <= 4.49) avg = 4
     else if (avg >= 4.5 && avg <= 5) avg = 5
-
-    console.log('avg array!!!1', avg)
 
     return (
         <div className="group-rating">
