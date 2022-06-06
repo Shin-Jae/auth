@@ -33,7 +33,7 @@ function DeleteGroupForm() {
         <form className="delete-modal" onSubmit={(e) => handleSubmit(e, id)}>
             <div><h2 className="delete-msg">Are you sure you want to delete?</h2></div>
             <div>
-                <button type="submit" >Yes</button>
+                <button className="delete-btn" type="submit" >Yes</button>
                 {/* <button type="button" onClick={handleClick}>No</button> */}
             </div>
         </form>

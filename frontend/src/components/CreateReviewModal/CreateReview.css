@@ -2,9 +2,11 @@
     position: relative;
     background-color: whitesmoke;
     width: 350px;
-    height: 420px;
+    height: 500px;
     border-radius: 10%;
     text-align: center;
+    font-family: monospace;
+    font-size: 15px;
 }
 
 .review-form-header {
@@ -12,6 +14,31 @@
 }
 
 .create-review-btn {
+    background-color: navy;
+    border: none;
+    height: 50px;
+    width: 130px;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.create-review-text {
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+
+.create-review-image {
+    margin-bottom: 15px;
+}
+
+.text-box {
+    height: 70px;
+    width: 250px;
+}
+
+.submit-edit {
     background-color: navy;
     border: none;
     height: 50px;

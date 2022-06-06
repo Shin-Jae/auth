@@ -16,8 +16,6 @@ function GroupFormPage() {
     const [image1, setImage1] = useState("");
     const [image2, setImage2] = useState("");
     const [image3, setImage3] = useState("");
-    const [image4, setImage4] = useState("");
-    const [image5, setImage5] = useState("");
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
@@ -42,8 +40,6 @@ function GroupFormPage() {
             image1,
             image2,
             image3,
-            image4,
-            image5
         };
         const group = await dispatch(groupActions.newGroup(newGroup));
         // console.log("dkasfjdlkfs;jadklf", group)
@@ -52,10 +48,6 @@ function GroupFormPage() {
             history.push(`/group/${group.id}`);
         }
     };
-
-    // function handleClick() {
-    //     history.push("/");
-    // }
 
     const handleCategory = (e) => {
         setCategoryId(e);
@@ -71,8 +63,6 @@ function GroupFormPage() {
         setImage1("");
         setImage2("");
         setImage3("");
-        setImage4("");
-        setImage5("");
         setErrors([]);
     }
 
@@ -169,26 +159,6 @@ function GroupFormPage() {
                         value={image3}
                         placeholder="Image"
                         onChange={(e) => setImage3(e.target.value)}
-                    />
-                </div>
-            </label>
-            <label>
-                <div>
-                    <input
-                        type="text"
-                        value={image4}
-                        placeholder="image"
-                        onChange={(e) => setImage4(e.target.value)}
-                    />
-                </div>
-            </label>
-            <label>
-                <div>
-                    <input
-                        type="text"
-                        value={image5}
-                        placeholder="image"
-                        onChange={(e) => setImage5(e.target.value)}
                     />
                 </div>
             </label>

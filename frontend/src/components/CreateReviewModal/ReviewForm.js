@@ -13,7 +13,6 @@ function ReviewForm() {
     const [review, setReview] = useState("");
     const [image1, setImage1] = useState("");
     const [image2, setImage2] = useState("");
-    const [image3, setImage3] = useState("");
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
@@ -33,7 +32,6 @@ function ReviewForm() {
             review,
             image1,
             image2,
-            image3,
         };
         console.log(rating)
         const post = await dispatch(reviewActions.newReview(postReview));
@@ -48,7 +46,6 @@ function ReviewForm() {
         setReview("");
         setImage1("");
         setImage2("");
-        setImage3("");
         setErrors([]);
     }
 
@@ -59,8 +56,8 @@ function ReviewForm() {
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label>
-                <div>Rating</div>
-                <div className="star-rating">
+                <div className="create-review-text">Rating</div>
+                <div className="create-star-rating">
                     {[1, 2, 3, 4, 5].map((star, index) => {
                         index += 1;
                         return (
@@ -74,26 +71,28 @@ function ReviewForm() {
                                 onMouseEnter={() => setHover(index)}
                                 onMouseLeave={() => setHover(rating)}
                             >
-                                <span className="star"><i className="fa-solid fa-star"></i></span>
+                                <span className="star"><i className="fa-solid fa-star fa-xl"></i></span>
                             </button>
                         )
                     })}
                 </div>
             </label>
             <label>
-                <div>Review</div>
+                <div className="create-review-text">Review</div>
                 <textarea
                     type="text"
-                    placeholder="Add a review"
+                    placeholder='ex. "This squad really got me out of a jam when I was in college. They did not know who I was but still lent a helping hand!"'
+                    className="text-box"
                     value={review}
                     onChange={(e) => setReview(e.target.value)}
                 />
             </label>
             <label>
-                <div>Add Images</div>
+                <div className="create-review-text">Add Images</div>
                 <input
                     type="text"
                     value={image1}
+                    className="create-review-image"
                     placeholder="Image"
                     onChange={(e) => setImage1(e.target.value)}
                 />
@@ -103,23 +102,14 @@ function ReviewForm() {
                     <input
                         type="text"
                         value={image2}
+                        className="create-review-image"
                         placeholder="Image"
                         onChange={(e) => setImage2(e.target.value)}
                     />
                 </div>
             </label>
-            <label>
-                <div>
-                    <input
-                        type="text"
-                        value={image3}
-                        placeholder="Image"
-                        onChange={(e) => setImage3(e.target.value)}
-                    />
-                </div>
-            </label>
             <div>
-                <button type="submit">Post Review</button>
+                <button className="submit-edit" type="submit">Post Review</button>
             </div>
         </form>
     );

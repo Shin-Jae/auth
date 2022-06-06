@@ -1,10 +1,12 @@
 .edit-group-form {
     position: relative;
     background-color: whitesmoke;
-    width: 450px;
-    height: 620px;
+    width: 500px;
+    height: 720px;
     border-radius: 10%;
     text-align: center;
+    font-family: monospace;
+    font-size: 15px;
 }
 
 .edit-group-header {
@@ -12,8 +14,17 @@
 }
 
 .edit-group-text {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.group-aboutUs {
+    height: 70px;
+    width: 250px;
+}
+
+.create-group-images {
+    margin-bottom: 15px;
 }
 
 .edit-btn {

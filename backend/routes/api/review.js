@@ -13,8 +13,7 @@ router.get('/', asyncHandler(async (req, res) => {
 
 router.get('/:id', asyncHandler(async (req, res) => {
     const id = parseInt(req.params.id, 10);
-    // const { id } = req.body;
-    console.log('hdsfasdfk', id)
+
     const review = await Review.findAll({
         where: {
             groupId: id
@@ -33,7 +32,6 @@ router.post('/new', requireAuth, handleValidationErrors, asyncHandler(async (req
         review,
         image1,
         image2,
-        image3,
     } = req.body;
 
     const groupId = id;
@@ -45,7 +43,6 @@ router.post('/new', requireAuth, handleValidationErrors, asyncHandler(async (req
         review,
         image1,
         image2,
-        image3,
     });
 
     res.json(oneReview);
@@ -60,7 +57,6 @@ router.put('/:id', requireAuth, handleValidationErrors, asyncHandler(async (req,
         review,
         image1,
         image2,
-        image3,
     } = req.body;
 
     const edit = await Review.findByPk(reviewId);
@@ -74,7 +70,6 @@ router.put('/:id', requireAuth, handleValidationErrors, asyncHandler(async (req,
     edit.review = review;
     edit.image1 = image1;
     edit.image2 = image2;
-    edit.image3 = image3;
 
     await edit.save();
     res.json(oneReview);

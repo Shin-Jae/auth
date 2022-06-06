@@ -1,14 +1,15 @@
 .delete-modal {
     position: relative;
     background-color: whitesmoke;
-    width: 250px;
-    height: 150px;
+    width: 300px;
+    height: 160px;
     border-radius: 10%;
     text-align: center;
 }
 
 .delete-msg {
     padding-top: 20px;
+    font-family: monospace;
 }
 
 .delete-btn {

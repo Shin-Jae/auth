@@ -44,12 +44,6 @@ module.exports = {
       image3: {
         type: Sequelize.STRING
       },
-      image4: {
-        type: Sequelize.STRING
-      },
-      image5: {
-        type: Sequelize.STRING
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

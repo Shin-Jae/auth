@@ -11,8 +11,6 @@ module.exports = (sequelize, DataTypes) => {
     image1: DataTypes.STRING,
     image2: DataTypes.STRING,
     image3: DataTypes.STRING,
-    image4: DataTypes.STRING,
-    image5: DataTypes.STRING
   }, {});
   Group.associate = function (models) {
     // associations can be defined here

@@ -30,7 +30,7 @@ function SingleGroup() {
     const avg = count / review.length;
 
     //user auth for edit/delete
-    let auth = group[0].ownerId === currentUser;
+    let auth = group[0]?.ownerId === currentUser;
 
     useEffect(() => {
 
@@ -44,10 +44,6 @@ function SingleGroup() {
         <div>
             {group.map(group => {
                 return <div className="one-group-container" key={`${group.id}`}>
-                    {auth ? <div className="edit-delete-btns">
-                        <EditGroup />
-                        <DeleteGroupModal />
-                    </div> : <></>}
                     <div className="one-group-header-container"><img className="single-group-profile-img" src={`${group.groupImg}`} alt=""></img>
                         <div className="single-group-name-container">
                             <h1 className="single-group-name">{group.name}</h1>
@@ -71,6 +67,12 @@ function SingleGroup() {
                         <span className="location">{group.location}</span> </div>
                     <div className="single-group-aboutUs single-group-text"><span className="red">About Us:</span>
                         <div className="about-us"> {group.aboutUs}</div></div>
+                    {
+                        auth ? <div className="edit-delete-btns review-edit-delete">
+                            <EditGroup />
+                            <DeleteGroupModal />
+                        </div> : <></>
+                    }
                 </div>
             })}
             <ul className="all-review-container">
