@@ -7,20 +7,18 @@ function EditReviewForm({ id }) {
     const dispatch = useDispatch();
 
     const oneReview = useSelector((state) => state.reviews[id])
-    console.log('fsdfasf', oneReview)
 
     const [rating, setRating] = useState(oneReview.rating);
+    const [hover, setHover] = useState(0);
     const [review, setReview] = useState(oneReview.review);
     const [image1, setImage1] = useState(oneReview.image1);
     const [image2, setImage2] = useState(oneReview.image2);
-    const [image3, setImage3] = useState(oneReview.image3);
     const [errors, setErrors] = useState([]);
 
-    const updateRating = (e) => e.target.value === 0 ? oneReview.rating : setRating(e.target.value);
+    // const updateRating = (e) => e.target.value === 0 ? oneReview.rating : setRating(e.target.value);
     const updateReview = (e) => setReview(e.target.value);
     const updateImage1 = (e) => setImage1(e.target.value);
     const updateImage2 = (e) => setImage2(e.target.value);
-    const updateImage3 = (e) => setImage3(e.target.value);
 
     const handleSubmit = async (e) => {
         const errors = [];
@@ -39,80 +37,70 @@ function EditReviewForm({ id }) {
             review,
             image1,
             image2,
-            image3,
         };
-        const edit = await dispatch(reviewActions.editOneReview(editReview));
-        console.log(edit)
-        if (edit) {
-            reset();
-        }
-    };
 
-    const reset = () => {
-        setRating(0);
-        setReview("");
-        setImage1("");
-        setImage2("");
-        setImage3("");
-        setErrors([]);
-    }
+        await dispatch(reviewActions.editOneReview(editReview));
+    };
 
     return (
         <form className="new-review-form" onSubmit={handleSubmit}>
             <h2 className="review-form-header">Edit a review</h2>
-            <ul className="error-valid" style={{ textAlign: "center" }}>
+            <ul className="error-valid" style={{ textAlign: "center", color: "red" }}>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label>
-                <div>Rating</div>
-                <input
-                    type="number"
-                    value={rating}
-                    // placeholder="1-5"
-                    onChange={updateRating}
-                // required
-                />
+                <div className="create-review-text">Rating</div>
+                <div className="create-star-rating">
+                    {[1, 2, 3, 4, 5].map((star, index) => {
+                        index += 1;
+                        return (
+                            <button
+                                id="rating-btn"
+                                type="button"
+                                value={rating}
+                                key={index}
+                                className={index <= (hover || rating) ? "on" : "off"}
+                                onClick={() => setRating(index)}
+                                onMouseEnter={() => setHover(index)}
+                                onMouseLeave={() => setHover(rating)}
+                            >
+                                <span className="star"><i className="fa-solid fa-star fa-xl"></i></span>
+                            </button>
+                        )
+                    })}
+                </div>
             </label>
             <label>
-                <div>Review</div>
+                <div className="create-review-text">Review</div>
                 <textarea
                     type="text"
-                    // placeholder="Add a review"
+                    className="text-box"
                     value={review}
                     onChange={updateReview}
                 />
             </label>
             <label>
-                <div>Add Images</div>
+                <div className="create-review-text">Add Images</div>
                 <input
                     type="text"
                     value={image1}
+                    className="create-review-image"
                     placeholder="Image"
                     onChange={updateImage1}
                 />
             </label>
             <label>
-                <div>
+                <div >
                     <input
                         type="text"
                         value={image2}
-                        placeholder="Image"
+                        className="create-review-image"
                         onChange={updateImage2}
                     />
                 </div>
             </label>
-            <label>
-                <div>
-                    <input
-                        type="text"
-                        value={image3}
-                        placeholder="Image"
-                        onChange={updateImage3}
-                    />
-                </div>
-            </label>
             <div>
-                <button type="submit">Edit Review</button>
+                <button className="submit-edit" type="submit">Edit Review</button>
             </div>
         </form>
     );

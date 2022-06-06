@@ -20,8 +20,6 @@ module.exports = {
         image1: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpaperaccess.com%2Ffull%2F1134221.jpg&f=1&nofb=1",
         image2: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Flh3.googleusercontent.com%2F_i302WGI6hozJFfczUQmUsIxgBR5Y8nG9OE_EZwEmUpXBXaSZDmCNMR1PIfozuGhK7DZR9QSNevgSIoQTN9txN3-z6tMleRaxI9CQePs2ZeqCwBFDSPNR1XfpahjjY1zrZFUofbXFx60no8Jdw&f=1&nofb=1",
         image3: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Xsd1TTtV9JR7wsl6tZPl_AHaGQ%26pid%3DApi&f=1",
-        image4: null,
-        image5: null,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -36,8 +34,6 @@ module.exports = {
         image1: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.ticketgum.com%2Fsites%2Fdefault%2Ffiles%2Fteams%2F105.jpg&f=1&nofb=1',
         image2: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIF.yTYczS2yTQGukNLWEqv4VA%26pid%3DApi&f=1",
         image3: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.mt2q8n1fhpPw6NpCMrTdSwHaD4%26pid%3DApi&f=1",
-        image4: null,
-        image5: null,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -52,8 +48,6 @@ module.exports = {
         image1: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.explicit.bing.net%2Fth%3Fid%3DOIP.H9O0yHpdEh3YUaDvCMAyFgHaE8%26pid%3DApi&f=1',
         image2: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp4884734.jpg&f=1&nofb=1',
         image3: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fksassets.timeincuk.net%2Fwp%2Fuploads%2Fsites%2F55%2F2019%2F01%2Favengers.jpg&f=1&nofb=1",
-        image4: null,
-        image5: null,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -68,8 +62,6 @@ module.exports = {
         image1: 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fi2.cdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F160622160732-05-cleveland-cavaliers-parade-0622-super-169.jpg&f=1&nofb=1',
         image2: 'https://hoopshabit.com/files/2015/09/nba-playoffs-atlanta-hawks-cleveland-cavaliers.jpg',
         image3: "https://a57.foxsports.com/statics.foxsports.com/www.foxsports.com/content/uploads/2020/03/2016/1242/627ca67c-9349743-lebron-james-nba-finals-cleveland-cavaliers-golden-state-warriors.jpg?ve=1&tl=1",
-        image4: null,
-        image5: null,
         createdAt: new Date(),
         updatedAt: new Date()
       },
@@ -84,8 +76,6 @@ module.exports = {
         image1: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.jfSx8GpIiDI5MlLIdpag2AHaI2%26pid%3DApi&f=1',
         image2: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcutewallpaper.org%2F21%2Fakatsuki-wallpaper-1920x1080%2FNaruto-Shippuden-Wallpaper-Akatsuki-WallpaperTag.jpg&f=1&nofb=1",
         image3: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fexternal-preview.redd.it%2F9AalLai1MNc43G2Uj5NEICQvItQg468gI8WTd-c2idE.png%3Fformat%3Dpjpg%26auto%3Dwebp%26s%3Dee4ad67e4e70b7a85de9d4e7d890cb8ef1d2ae92&f=1&nofb=1',
-        image4: null,
-        image5: null,
         createdAt: new Date(),
         updatedAt: new Date()
       }

@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import * as reviewsActions from "../../store/review.js";
+import '../DeleteGroupModal/DeleteModal.css'
 
 function DeleteReviewForm({ id, userId }) {
     const dispatch = useDispatch();
@@ -20,7 +21,7 @@ function DeleteReviewForm({ id, userId }) {
         <form className="delete-modal" onSubmit={() => handleSubmit(id)}>
             <div><h2 className="delete-msg">Are you sure you want to delete?</h2></div>
             <div>
-                <button type="submit" onClick={handleClick}>Yes</button>
+                <button className="delete-btn" type="submit" onClick={handleClick}>Yes</button>
             </div>
         </form>
     )

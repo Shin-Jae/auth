@@ -1,0 +1,20 @@
+#rating-btn {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  .on {
+    color: goldenrod;
+}
+.off {
+    color: #ccc;
+}
+
+.solid-star {
+    color: goldenrod;
+  }
+
+  .white-star {
+      color: goldenrod
+  }

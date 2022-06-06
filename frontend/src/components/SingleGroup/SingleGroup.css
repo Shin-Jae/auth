@@ -1,10 +1,11 @@
 .one-group-container {
-    border: 1px solid black
+    border: 1px solid goldenrod;
+    box-shadow: goldenrod 1px 0 10px;
 }
 
 .one-group-header-container {
-    display: inline-flex;
-    padding-top: 60px;
+    display: flex;
+    padding-top: 30px;
     padding-left: 30px;
 }
 
@@ -15,44 +16,76 @@
     border: 1px solid lightgrey;
 }
 
-.single-group-name {
-    display: inline;
-    position: relative;
-    font-size: 60px;
-    padding-top: -10px;
+.single-group-name-container {
+    /* display: flex; */
+    justify-content: flex-start;
     margin-left: 100px;
+    width: 800px;
+}
+
+.single-group-name {
+    font-size: 65px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.single-group-rating {
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* total rating display text */
+.total-rating {
+    display: inline-flex;
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+.one-group-btns {
+    margin-top: -65px;
 }
 
 .edit-delete-btns {
-    display: inline-flex;
-    padding-left: 300px;
-    margin-top: -60px;
-}
-
-.total-rating {
     display: flex;
-    margin-left: 100px;
-    font-size: 60px;
+    margin-left: 20px;
+    margin-top: 15px;
 }
 
-.single-group-text {
-    font-size: 20px;
-    padding-bottom: 10px;
+.single-group-location {
+    font-size: 25px;
+    padding: 30px;
+}
+
+.location {
+    padding-left: 40px;
+    font-style: italic;
+}
+
+.single-group-aboutUs {
+    font-size: 25px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+}
+
+.about-us {
+    display: inline-flex;
+    width: 900px;
+    padding-left: 25px;
+    font-style: italic;
 }
 
 .single-group-title {
-    margin-top: 50px;
-}
-
-
-.single-group-aboutUs {
-    margin-bottom: 50px;
+    font-size: 30px;
+    font-style: italic;
+    color: goldenrod;
+    margin-top: -20px;
 }
 
 .single-group-images-container {
     display: flex;
     justify-content: space-between;
-    padding-top: 40px;
+    padding-top: 25px;
 }
 
 .single-group-images {
@@ -60,21 +93,82 @@
     width: 465px;
 }
 
-.one-group-btns {
-    display: inline-flex;
-    max-width: 600px;
-    justify-content: space-between;
-}
+
 
 /* reviews */
+.all-review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .single-review-container {
-    border: 1px solid black;
-    margin-top: 30px;
+    display: block;
+    border: 1px solid navy;
+    box-shadow: navy 1px 0 10px;
+    border-radius: 5%;
+    width: 610px;
+    margin-top: 50px;
+}
+
+.review-user {
+    display: flex;
+    align-items: center;
 }
 
 .review-profile-img {
     height: 100px;
     width: 100px;
     border-radius: 50%;
+    margin: 20px;
     border: 1px solid lightgrey;
+}
+
+.review-username {
+    font-size: 20px;
+    color:  goldenrod;
+    font-family: monospace ;
+}
+
+.review-rating {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.review-review {
+    font-size: 23px;
+    margin-left: 15px;
+    padding-right: 15px;
+}
+
+.single-review-images-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.image2 {
+    padding-left: 10px;
+}
+
+.single-review-images {
+    height: 250px;
+    width: 300px;
+}
+
+.review {
+    display: flex;
+    text-align: left;
+    margin-left: 50px;
+    margin-top: -25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.review-edit-delete {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
 }

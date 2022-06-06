@@ -19,8 +19,6 @@ function EditGroupForm() {
     const [image1, setImage1] = useState(oneGroup.image1);
     const [image2, setImage2] = useState(oneGroup.image2);
     const [image3, setImage3] = useState(oneGroup.image3);
-    const [image4, setImage4] = useState(oneGroup.image4);
-    const [image5, setImage5] = useState(oneGroup.image5);
     const [errors, setErrors] = useState([]);
 
     const updateName = (e) => setName(e.target.value);
@@ -32,14 +30,12 @@ function EditGroupForm() {
     const updateImage1 = (e) => setImage1(e.target.value);
     const updateImage2 = (e) => setImage2(e.target.value);
     const updateImage3 = (e) => setImage3(e.target.value);
-    const updateImage4 = (e) => setImage4(e.target.value);
-    const updateImage5 = (e) => setImage5(e.target.value);
 
     const handleSubmit = async (e) => {
         const errors = [];
 
-        if (name.length < 3 && name.length > 0) errors.push("Group names must be at least 3 or more characters");
-        if (title.length < 3 && title.length > 0) errors.push("Job-title must be at least 3 or more characters");
+        if (name?.length < 3) errors.push("Squad names must be at least 3 or more characters");
+        if (title?.length < 3) errors.push("Squad-title must be at least 3 or more characters");
         // if (!categoryId || categoryId === null) errors.push("A category must be selected");
         setErrors(errors);
 
@@ -58,26 +54,20 @@ function EditGroupForm() {
             image1,
             image2,
             image3,
-            image4,
-            image5,
             id
         };
-        const update = await dispatch(groupsActions.editOneGroup(edit));
-        console.log(update)
+        await dispatch(groupsActions.editOneGroup(edit));
     };
 
-    // const handleCategory = (e) => {
-    //     setCategoryId(e);
-    // }
 
     return (
         <form className="edit-group-form" onSubmit={handleSubmit}>
-            <div><h2 className="edit-group-header">Edit Group</h2></div>
+            <div><h2 className="edit-group-header">Edit Squad</h2></div>
             <ul className="error-valid" style={{ textAlign: "center", color: 'red' }}>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label>
-                <div className="edit-group-text">What is your Groups name?</div>
+                <div className="edit-group-text">What is your Squad's name?</div>
                 <input
                     type="text"
                     value={name}
@@ -86,7 +76,7 @@ function EditGroupForm() {
                 />
             </label>
             <label>
-                <div className="edit-group-text">What is your Groups Title?</div>
+                <div className="edit-group-text">What is your Squad's Title?</div>
                 <input
                     type="text"
                     value={title}
@@ -96,7 +86,7 @@ function EditGroupForm() {
                 />
             </label>
             <label>
-                <div className="edit-group-text">Where is your Group located?</div>
+                <div className="edit-group-text">Where is your Squad located?</div>
                 <input
                     type="text"
                     value={location}
@@ -104,10 +94,11 @@ function EditGroupForm() {
                 />
             </label>
             <label>
-                <div className="edit-group-text">Tell us about your Group</div>
+                <div className="edit-group-text">Tell us about your Squad</div>
                 <textarea
                     type="text"
                     value={aboutUs}
+                    className="group-aboutUs"
                     onChange={updateAboutUs}
                     placeholder="ex. We are the greatest team, assembled from all corners of the Earth. Who came together when the world needed people they can count on..."
                 />
@@ -127,7 +118,7 @@ function EditGroupForm() {
                 </select>
             </label>
             <label>
-                <div className="edit-group-text">Group Profile Image:</div>
+                <div className="edit-group-text">Squad Profile Image:</div>
                 <input
                     type="text"
                     value={groupImg}
@@ -135,10 +126,11 @@ function EditGroupForm() {
                 />
             </label>
             <label>
-                <div className="edit-group-text">Group Images</div>
+                <div className="edit-group-text">Squad Images</div>
                 <input
                     type="text"
                     value={image1}
+                    className="create-group-images"
                     onChange={updateImage1}
                 />
             </label>
@@ -148,6 +140,7 @@ function EditGroupForm() {
                         type="text"
                         value={image2}
                         placeholder="Image"
+                        className="create-group-images"
                         onChange={updateImage2}
                     />
                 </div>
@@ -158,32 +151,13 @@ function EditGroupForm() {
                         type="text"
                         value={image3}
                         placeholder="Image"
+                        className="create-group-images"
                         onChange={updateImage3}
                     />
                 </div>
             </label>
-            <label>
-                <div>
-                    <input
-                        type="text"
-                        value={image4}
-                        placeholder="image"
-                        onChange={updateImage4}
-                    />
-                </div>
-            </label>
-            <label>
-                <div>
-                    <input
-                        type="text"
-                        value={image5}
-                        placeholder="image"
-                        onChange={updateImage5}
-                    />
-                </div>
-            </label>
             <div>
-                <button type="submit" >Edit Group</button>
+                <button className="submit-edit" type="submit" >Edit Squad</button>
             </div>
         </form >
     )

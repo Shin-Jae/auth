@@ -2,7 +2,7 @@
     height: 40px;
     width: 40px;
     border-radius: 50%;
-    border: 1px solid lightgrey;
+    border: 1px solid white;
 }
 
 .session-nav {
@@ -15,18 +15,20 @@
 }
 
 .welcome-msg {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: bold;
-    margin-left: -100px;
-    margin-right: 100px;
-    color: orange
+    margin-left: -80px;
+    margin-right: 70px;
+    font-style: oblique;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: whitesmoke;
+    text-shadow: navy 1px 0 10px;
 }
 
 .new-group-btn {
-    background-color: orange;
+    background-color: navy;
     border: none;
     margin-right: 40px;
-    border: 2px solid orange;
     border-radius: 5px;
     padding: 10px;
 }
@@ -45,10 +47,10 @@
 
 .log-out-btn {
     background-color: transparent;
-    border: 2px solid orange;
+    border: 2px solid goldenrod;
     height: 35px;
     width: 90px;
     border-radius: 5px;
-    color: orange;
+    color: goldenrod;
     font-weight: bold;
 }

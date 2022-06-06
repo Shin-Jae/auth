@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import * as groupActions from '../../store/group';
+import './GroupFormPage.css'
 
 function GroupFormPage() {
     const dispatch = useDispatch();
@@ -16,8 +17,6 @@ function GroupFormPage() {
     const [image1, setImage1] = useState("");
     const [image2, setImage2] = useState("");
     const [image3, setImage3] = useState("");
-    const [image4, setImage4] = useState("");
-    const [image5, setImage5] = useState("");
     const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
@@ -42,8 +41,6 @@ function GroupFormPage() {
             image1,
             image2,
             image3,
-            image4,
-            image5
         };
         const group = await dispatch(groupActions.newGroup(newGroup));
         // console.log("dkasfjdlkfs;jadklf", group)
@@ -52,10 +49,6 @@ function GroupFormPage() {
             history.push(`/group/${group.id}`);
         }
     };
-
-    // function handleClick() {
-    //     history.push("/");
-    // }
 
     const handleCategory = (e) => {
         setCategoryId(e);
@@ -71,131 +64,116 @@ function GroupFormPage() {
         setImage1("");
         setImage2("");
         setImage3("");
-        setImage4("");
-        setImage5("");
         setErrors([]);
     }
 
     return (
-        <form className="new-group-form" onSubmit={handleSubmit}>
-            <div className="group-form-header"><h2>Create your own Group</h2></div>
-            <ul className="error-valid" style={{ textAlign: "center" }}>
-                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-            </ul>
-            <label>
-                <div>What is your Groups name?</div>
-                <input
-                    type="text"
-                    value={name}
-                    placeholder="Group Name"
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                <div>What does your Group do?</div>
-                <input
-                    type="text"
-                    value={title}
-                    placeholder="Job title"
-                    onChange={(e) => setTitle(e.target.value)}
-                    required
-                />
-            </label>
-            <label>
-                <div>Where is your Group located?</div>
-                <input
-                    type="text"
-                    value={location}
-                    placeholder="Location"
-                    onChange={(e) => setLocation(e.target.value)}
-                />
-            </label>
-            <label>
-                <div>Tell us about your Group</div>
-                <textarea
-                    type="text"
-                    placeholder="Add a description"
-                    value={aboutUs}
-                    onChange={(e) => setAboutUs(e.target.value)}
-                />
-            </label>
-            <label>
-                <span>Category:  </span>
-                <select
-                    value={categoryId}
-                    onChange={(e) => handleCategory(e.target.value)}
-                >
-                    <option value={null} >Select One</option>
-                    <option value={1}>Adventure</option>
-                    <option value={2}>Sports</option>
-                    <option value={3}>Heros</option>
-                    <option value={4}>Music</option>
-                    <option value={5}>Miscellaneous</option>
-                </select>
-            </label>
-            <label>
-                <div>Group Profile Image:</div>
-                <input
-                    type="text"
-                    value={groupImg}
-                    placeholder="Image"
-                    onChange={(e) => setGroupImg(e.target.value)}
-                />
-            </label>
-            <label>
-                <div>Group Images</div>
-                <input
-                    type="text"
-                    value={image1}
-                    placeholder="Image"
-                    onChange={(e) => setImage1(e.target.value)}
-                />
-            </label>
-            <label>
-                <div>
+        <div className="create-group-container">
+            <form className="create-group-form" onSubmit={handleSubmit}>
+                <div className="edit-group-header"><h2>Create your own Group</h2></div>
+                <ul className="error-valid" style={{ textAlign: "center", color: "red" }}>
+                    {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+                </ul>
+                <label>
+                    <div className="edit-group-text">What is your Squad's name?</div>
                     <input
                         type="text"
-                        value={image2}
+                        value={name}
+                        placeholder="Squad Name"
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    <div className="edit-group-text">What does your Squad do?</div>
+                    <input
+                        type="text"
+                        value={title}
+                        placeholder="Job title"
+                        onChange={(e) => setTitle(e.target.value)}
+                        required
+                    />
+                </label>
+                <label>
+                    <div className="edit-group-text">Where is your Squad located?</div>
+                    <input
+                        type="text"
+                        value={location}
+                        placeholder="Location"
+                        onChange={(e) => setLocation(e.target.value)}
+                    />
+                </label>
+                <label>
+                    <div className="edit-group-text">Tell us about your Sqaud</div>
+                    <textarea
+                        type="text"
+                        placeholder="Add a description"
+                        value={aboutUs}
+                        className="group-aboutUs"
+                        onChange={(e) => setAboutUs(e.target.value)}
+                    />
+                </label>
+                <label>
+                    <div className="edit-group-text">Category:  </div>
+                    <select
+                        value={categoryId}
+                        onChange={(e) => handleCategory(e.target.value)}
+                    >
+                        <option value={null} >Select One</option>
+                        <option value={1}>Adventure</option>
+                        <option value={2}>Sports</option>
+                        <option value={3}>Heros</option>
+                        <option value={4}>Music</option>
+                        <option value={5}>Miscellaneous</option>
+                    </select>
+                </label>
+                <label>
+                    <div className="edit-group-text">Squad Profile Image:</div>
+                    <input
+                        type="text"
+                        value={groupImg}
                         placeholder="Image"
-                        onChange={(e) => setImage2(e.target.value)}
+                        className="create-group-images"
+                        onChange={(e) => setGroupImg(e.target.value)}
                     />
-                </div>
-            </label>
-            <label>
-                <div>
+                </label>
+                <label>
+                    <div className="edit-group-text">Squad Images</div>
                     <input
                         type="text"
-                        value={image3}
+                        value={image1}
                         placeholder="Image"
-                        onChange={(e) => setImage3(e.target.value)}
+                        className="create-group-images"
+                        onChange={(e) => setImage1(e.target.value)}
                     />
-                </div>
-            </label>
-            <label>
+                </label>
+                <label>
+                    <div>
+                        <input
+                            type="text"
+                            value={image2}
+                            placeholder="Image"
+                            className="create-group-images"
+                            onChange={(e) => setImage2(e.target.value)}
+                        />
+                    </div>
+                </label>
+                <label>
+                    <div>
+                        <input
+                            type="text"
+                            value={image3}
+                            placeholder="Image"
+                            className="create-group-images"
+                            onChange={(e) => setImage3(e.target.value)}
+                        />
+                    </div>
+                </label>
                 <div>
-                    <input
-                        type="text"
-                        value={image4}
-                        placeholder="image"
-                        onChange={(e) => setImage4(e.target.value)}
-                    />
+                    <button className="submit-edit" type="submit">Create new Group</button>
                 </div>
-            </label>
-            <label>
-                <div>
-                    <input
-                        type="text"
-                        value={image5}
-                        placeholder="image"
-                        onChange={(e) => setImage5(e.target.value)}
-                    />
-                </div>
-            </label>
-            <div>
-                <button type="submit">Create new Group</button>
-            </div>
-        </form >
+            </form >
+        </div>
     );
 }
 

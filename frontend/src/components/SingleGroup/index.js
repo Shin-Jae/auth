@@ -9,17 +9,28 @@ import * as groupsActions from "../../store/group.js";
 import * as reviewsActions from "../../store/review.js";
 import './SingleGroup.css'
 import DeleteReviewModal from "../DeleteReviewModal";
+import StarRating from "../StarRating";
 
 function SingleGroup() {
     const { id } = useParams();
     const dispatch = useDispatch();
     const oneGroup = useSelector((state) => state.groups)
     const oneReview = useSelector((state) => state.reviews)
-    // console.log("kj;j;jk", oneReview)
+    const currentUser = useSelector((state) => state.session.user.id)
+    // console.log("kj;j;jk", user.id)
 
     const group = Object.values(oneGroup);
     const review = Object.values(oneReview);
-    // console.log('After change', group);
+
+    //avg group rating
+    let count = 0;
+    review.forEach((revv) => {
+        count += revv.rating
+    })
+    const avg = count / review.length;
+
+    //user auth for edit/delete
+    let auth = group[0]?.ownerId === currentUser;
 
     useEffect(() => {
 
@@ -34,48 +45,55 @@ function SingleGroup() {
             {group.map(group => {
                 return <div className="one-group-container" key={`${group.id}`}>
                     <div className="one-group-header-container"><img className="single-group-profile-img" src={`${group.groupImg}`} alt=""></img>
-                        <div><h1 className="single-group-name">{group.name}</h1></div>
-                        <div className="edit-delete-btns">
-                            <EditGroup />
-                            <DeleteGroupModal />
+                        <div className="single-group-name-container">
+                            <h1 className="single-group-name">{group.name}</h1>
+                            <div className="single-group-title">
+                                {group.title}
+                            </div>
                         </div>
-                    </div>
-                    <span className="total-rating">⭐️ ⭐️ ⭐️ ⭐️ ⭐️</span>
-                    <div className="single-group-title single-group-text"><span className="red">Job:</span> {group.title}</div>
-                    <div className="single-group-location single-group-text"><span className="red">Located:</span> {group.location}</div>
-                    <div className="single-group-aboutUs single-group-text"><span className="red">About Us:</span> {group.aboutUs}</div>
-                    {/* <div><span className="red">About us:</span> {group.aboutUs}</div> */}
-                    <div className="one-group-btns">
-                        <div>
-                            <CreateReviewModal />
+                        <div className="single-group-rating">
+                            <StarRating avg={avg} /><span className="total-rating">({review.length})</span>
+                            <div className="one-group-btns">
+                                <CreateReviewModal />
+                            </div>
                         </div>
-
                     </div>
                     <div className="single-group-images-container">
-                        <img className="single-group-images" src={`${group.image1}`} alt="1"></img>
-                        <img className="single-group-images" src={`${group.image2}`} alt="2"></img>
-                        <img className="single-group-images" src={`${group.image3}`} alt="3"></img>
-                        {/* <img className="single-group-images" src={`${group.image4}`} alt="4"></img>
-                        <img className="single-group-images" src={`${group.image5}`} alt="5"></img> */}
+                        {group.image1 ? <img className="single-group-images" src={`${group.image1}`} alt="1"></img> : <></>}
+                        {group.image2 ? <img className="single-group-images" src={`${group.image2}`} alt="2"></img> : <></>}
+                        {group.image3 ? <img className="single-group-images" src={`${group.image3}`} alt="3"></img> : <></>}
                     </div>
+                    <div className="single-group-location single-group-text"><span className="red">Located:</span>
+                        <span className="location">{group.location}</span> </div>
+                    <div className="single-group-aboutUs single-group-text"><span className="red">About Us:</span>
+                        <div className="about-us"> {group.aboutUs}</div></div>
+                    {
+                        auth ? <div className="edit-delete-btns review-edit-delete">
+                            <EditGroup />
+                            <DeleteGroupModal />
+                        </div> : <></>
+                    }
                 </div>
             })}
-            <ul>
+            <ul className="all-review-container">
                 {review.map(rev => {
                     return <li className="single-review-container" key={`review-${rev.id}`}>
-                        <img className="review-profile-img" src={`${rev.User.profileImg}`} alt="prof"></img>
-                        <div>User: {rev?.User.username}</div>
-                        <div>Rating: {rev?.rating}</div>
-                        <div>Review: {rev?.review}</div>
-                        <div className="single-group-images-container">
-                            <img className="single-group-images" src={`${rev.image1}`} alt="r1"></img>
-                            <img className="single-group-images" src={`${rev.image2}`} alt="r2"></img>
-                            <img className="single-group-images" src={`${rev.image3}`} alt="r3"></img>
+                        <div className="review-user">
+                            {rev.User.profileImg ? <img className="review-profile-img" src={`${rev.User.profileImg}`} alt="prof"></img> : <></>}
+                            <div className="review-username">{rev?.User.username}</div>
                         </div>
-                        <div>
-                            <EditReviewModal id={rev.id} />
-                            <DeleteReviewModal id={rev.id} userId={rev.userId} />
+                        <div className="review-rating"><StarRating avg={rev?.rating} /></div>
+                        <div className="review-review"><span>🗣 :</span><div className="review">{rev?.review}</div></div>
+                        <div className="single-review-images-container">
+                            {rev.image1 ? <img className="single-review-images" src={`${rev.image1}`} alt="r1"></img> : <></>}
+                            {rev.image2 ? <img className="single-review-images image2" src={`${rev.image2}`} alt="r2"></img> : <></>}
+                            {/* {rev.image3 ? <img className="single-review-images" src={`${rev.image3}`} alt="r3"></img> : <></>} */}
                         </div>
+                        {rev.userId === currentUser ?
+                            <div className="review-edit-delete">
+                                <EditReviewModal id={rev.id} />
+                                <DeleteReviewModal id={rev.id} userId={rev.userId} />
+                            </div> : <></>}
                     </li>
                 })}
             </ul>
