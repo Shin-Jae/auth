@@ -70,11 +70,23 @@
     text-align: center;
 }
 
+.home-page-star-avg {
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.star-avg-length {
+    padding-left: 2px;
+}
+
 .job-title {
     padding-top: 15px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 20px;
     text-align: center;
+    color: goldenrod;
 }
 
 .group-images {
