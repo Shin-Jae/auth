@@ -36,7 +36,7 @@ function HomePage() {
     return (
         <div>
             <div className="home-img-container">
-                SlidezShow NOthign lik,e a new coat
+                <div className="home-welcome">Welcome to YelpSquad</div>
             </div>
             <div className="recent-activity">
                 <h1 className="recent-text">Recent Activity</h1>

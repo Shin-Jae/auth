@@ -1,6 +1,9 @@
 .create-group-container {
     display: flex;
     justify-content: center;
+    background-color: whitesmoke;
+    z-index: 1;
+    top: 0;
 }
 
 .create-group-form {

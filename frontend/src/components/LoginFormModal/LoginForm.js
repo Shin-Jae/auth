@@ -62,10 +62,11 @@ function LoginForm() {
                 />
             </label>
             <div className="login-btns">
-                <button type="submit">Log In</button>
+                <button className="signup-form-btn" type="submit">Log In</button>
                 <span className='demo-btn'>
                     <button
                         type='submit'
+                        className="demo-user-btn"
                         onClick={demoUser}
                     >
                         Demo

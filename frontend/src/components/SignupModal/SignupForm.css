@@ -17,9 +17,11 @@
     position: relative;
     background-color: whitesmoke;
     width: 350px;
-    height: 420px;
+    height: 460px;
     border-radius: 10%;
     text-align: center;
+    font-family: monospace;
+    font-size: 17px;
 }
 
 .signup-header {
@@ -37,9 +39,17 @@
 }
 
 .signup-email {
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
-.signup-submit {
-    margin-top: 15px;
+.signup-form-btn {
+    background-color: navy;
+    margin-top: 20px;
+    border: none;
+    height: 35px;
+    width: 105px;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

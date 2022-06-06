@@ -1,5 +1,6 @@
 .one-group-container {
-    border: 1px solid goldenrod
+    border: 1px solid goldenrod;
+    box-shadow: goldenrod 1px 0 10px;
 }
 
 .one-group-header-container {
@@ -104,6 +105,7 @@
 .single-review-container {
     display: block;
     border: 1px solid navy;
+    box-shadow: navy 1px 0 10px;
     border-radius: 5%;
     width: 610px;
     margin-top: 50px;

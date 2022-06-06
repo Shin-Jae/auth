@@ -45,7 +45,7 @@ function EditReviewForm({ id }) {
     return (
         <form className="new-review-form" onSubmit={handleSubmit}>
             <h2 className="review-form-header">Edit a review</h2>
-            <ul className="error-valid" style={{ textAlign: "center" }}>
+            <ul className="error-valid" style={{ textAlign: "center", color: "red" }}>
                 {errors.map((error, idx) => <li key={idx}>{error}</li>)}
             </ul>
             <label>

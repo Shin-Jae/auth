@@ -1,7 +1,7 @@
 .home-img-container {
     /* display: flex;
     justify-content: center; */
-    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.explicit.bing.net%2Fth%3Fid%3DOIP.pDiJIhyy8wdhmEF_0C-jNgHaEL%26pid%3DApi&f=1");
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1531206715517-5c0ba140b2b8%3Fixlib%3Drb-1.2.1%26ixid%3DeyJhcHBfaWQiOjEyMDd9%26w%3D1000%26q%3D80&f=1&nofb=1");
     background-size: cover;
     background-position: center;
     bottom: 0;
@@ -10,9 +10,18 @@
     height: 700px;
     right: 0;
     top: 0;
-    margin-top: -120px;
+    margin-top: -124px;
     margin-left: -10px;
     z-index: -1;
+}
+
+.home-welcome {
+    position: absolute;
+    top: 26%;
+    left: 3.5%;
+    font-size: 40px;
+    font-family: cursive;
+    color: white
 }
 
 .recent-activity {
@@ -43,7 +52,8 @@
 .single-group-container {
     display: flex;
     justify-content: center;
-    border: 1px solid lightgrey;
+    border: 1px solid goldenrod;
+    box-shadow: goldenrod 1px 0 10px;
     width: 360px;
     margin-top: 30px;
     margin-bottom: 30px;

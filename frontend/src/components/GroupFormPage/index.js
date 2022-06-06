@@ -79,7 +79,7 @@ function GroupFormPage() {
                     <input
                         type="text"
                         value={name}
-                        placeholder="Group Name"
+                        placeholder="Squad Name"
                         onChange={(e) => setName(e.target.value)}
                         required
                     />
