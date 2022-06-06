@@ -79,7 +79,8 @@ function SingleGroup() {
                 {review.map(rev => {
                     return <li className="single-review-container" key={`review-${rev.id}`}>
                         <div className="review-user">
-                            {rev.User.profileImg ? <img className="review-profile-img" src={`${rev.User.profileImg}`} alt="prof"></img> : <></>}
+                            {rev.User.profileImg ? <img className="review-profile-img" src={`${rev.User.profileImg}`} alt="prof"></img>
+                                : <img className="group-profile-img" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.BIRXTW1zxxbEAxGUuOpOgQHaHa%26pid%3DApi&f=1"></img>}
                             <div className="review-username">{rev?.User.username}</div>
                         </div>
                         <div className="review-rating"><StarRating avg={rev?.rating} /></div>
