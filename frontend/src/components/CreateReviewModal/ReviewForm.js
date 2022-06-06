@@ -9,6 +9,7 @@ function ReviewForm() {
     const { id } = useParams();
 
     const [rating, setRating] = useState(0);
+    const [hover, setHover] = useState(0);
     const [review, setReview] = useState("");
     const [image1, setImage1] = useState("");
     const [image2, setImage2] = useState("");
@@ -34,6 +35,7 @@ function ReviewForm() {
             image2,
             image3,
         };
+        console.log(rating)
         const post = await dispatch(reviewActions.newReview(postReview));
         console.log(post)
         if (post) {
@@ -58,13 +60,25 @@ function ReviewForm() {
             </ul>
             <label>
                 <div>Rating</div>
-                <input
-                    type="number"
-                    value={rating}
-                    placeholder="1-5"
-                    onChange={(e) => setRating(e.target.value)}
-                    required
-                />
+                <div className="star-rating">
+                    {[1, 2, 3, 4, 5].map((star, index) => {
+                        index += 1;
+                        return (
+                            <button
+                                id="rating-btn"
+                                type="button"
+                                value={index}
+                                key={index}
+                                className={index <= (hover || rating) ? "on" : "off"}
+                                onClick={() => setRating(index)}
+                                onMouseEnter={() => setHover(index)}
+                                onMouseLeave={() => setHover(rating)}
+                            >
+                                <span className="star"><i className="fa-solid fa-star"></i></span>
+                            </button>
+                        )
+                    })}
+                </div>
             </label>
             <label>
                 <div>Review</div>

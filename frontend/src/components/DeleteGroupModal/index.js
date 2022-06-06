@@ -9,7 +9,7 @@ function DeleteGroupModal() {
     return (
         <>
             <div>
-                <button onClick={() => setShowModal(true)}>Delete</button>
+                <button className='delete-btn' onClick={() => setShowModal(true)}>Delete</button>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
                         <DeleteGroupForm />

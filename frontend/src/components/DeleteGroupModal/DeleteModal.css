@@ -10,3 +10,14 @@
 .delete-msg {
     padding-top: 20px;
 }
+
+.delete-btn {
+    background-color: transparent;
+    border: 2px solid red;
+    height: 35px;
+    width: 90px;
+    border-radius: 5px;
+    color: red;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
