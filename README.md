@@ -51,9 +51,22 @@
   
 # Features
   
-- Create / Read / Edit / Delete Squads
-- include images
-- Assign categories
-- Create / Read / Edit / Delete Reviews/Ratings
-- Assign a Star rating of 1 - 5
-- includes images
+- View all Squads
+
+<img width="728" height="399" alt="Screen Shot 2022-08-03 at 6 14 34 PM" src="https://user-images.githubusercontent.com/95829246/182725317-93428555-6068-4217-b519-20e183821a11.png">
+
+- Fill out your Squad information and post your Squad
+
+<img width="769" alt="Screen Shot 2022-08-03 at 6 53 37 PM" src="https://user-images.githubusercontent.com/95829246/182726308-f82668a6-4f67-4cdd-8a78-e88959af3d88.png">
+
+- Can view a specific squad as well as edit and delete squads that you've posted
+
+<img width="1040" height="500" alt="Screen Shot 2022-08-03 at 6 48 06 PM" src="https://user-images.githubusercontent.com/95829246/182725793-e5ac1f40-8dfd-4e67-ae19-a3893cefe70c.png">
+
+- Can read all reviews and ratings for a squad
+
+<img width="1058"  alt="Screen Shot 2022-08-03 at 6 50 08 PM" src="https://user-images.githubusercontent.com/95829246/182725825-833d4658-3fde-47ab-a5e5-b3e5688df004.png">
+
+- Assign a star rating and a review for a squad as well as edit and delete reviews you've posted
+
+<img width="648" alt="Screen Shot 2022-08-03 at 6 48 20 PM" src="https://user-images.githubusercontent.com/95829246/182725753-13b5105a-7899-4506-9730-482a7a1b38cb.png">
