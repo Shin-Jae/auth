@@ -5,6 +5,7 @@ import EditGroup from "../EditGroupModal";
 import DeleteGroupModal from "../DeleteGroupModal";
 import CreateReviewModal from "../CreateReviewModal";
 import EditReviewModal from "../EditReviewModal";
+import LoginFormModal from "../LoginFormModal"
 import * as groupsActions from "../../store/group.js";
 import * as reviewsActions from "../../store/review.js";
 import './SingleGroup.css'
@@ -16,7 +17,7 @@ function SingleGroup() {
     const dispatch = useDispatch();
     const oneGroup = useSelector((state) => state.groups)
     const oneReview = useSelector((state) => state.reviews)
-    const currentUser = useSelector((state) => state.session.user.id)
+    const currentUser = useSelector((state) => state.session.user?.id)
     // console.log("kj;j;jk", user.id)
 
     const group = Object.values(oneGroup);
@@ -30,7 +31,10 @@ function SingleGroup() {
     const avg = count / review.length;
 
     //user auth for edit/delete
-    let auth = group[0]?.ownerId === currentUser;
+    let auth = false;
+    if (currentUser) {
+        auth = group[0]?.ownerId === currentUser;
+    }
 
     useEffect(() => {
 
@@ -53,9 +57,13 @@ function SingleGroup() {
                         </div>
                         <div className="single-group-rating">
                             <StarRating avg={avg} /><span className="total-rating">({review.length})</span>
-                            <div className="one-group-btns">
-                                <CreateReviewModal />
-                            </div>
+                            {currentUser
+                                &&
+                                <div className="one-group-btns">
+                                    <CreateReviewModal />
+                                </div>
+                            }
+
                         </div>
                     </div>
                     <div className="single-group-images-container">
@@ -90,7 +98,7 @@ function SingleGroup() {
                             {rev.image2 ? <img className="single-review-images image2" src={`${rev.image2}`} alt="r2"></img> : <></>}
                             {/* {rev.image3 ? <img className="single-review-images" src={`${rev.image3}`} alt="r3"></img> : <></>} */}
                         </div>
-                        {rev.userId === currentUser ?
+                        {currentUser && rev.userId === currentUser ?
                             <div className="review-edit-delete">
                                 <EditReviewModal id={rev.id} />
                                 <DeleteReviewModal id={rev.id} userId={rev.userId} />
